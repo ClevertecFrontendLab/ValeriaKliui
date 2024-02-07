@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
-import tsLogo from '/ts.svg';
-import './main-page.css';
+import React from 'react';
+import { MainPageContent } from '@components/MainPageContent/index';
 
 export const MainPage: React.FC = () => {
-    const [count, setCount] = useState(0);
-
-    return <>main page</>;
+    return (
+        <div>
+            <MainPageContent />
+        </div>
+    );
 };
