@@ -1,0 +1,11 @@
+.mainContent {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 65%;
+}
+
+.Card {
+    text-align: center;
+}

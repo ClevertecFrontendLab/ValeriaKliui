@@ -1,0 +1,20 @@
+.Header {
+    background-color: #F0F5FF;
+    padding: 16px 24px;
+    height: unset;
+    line-height: 130%;
+    display: flex;
+}
+
+.HeaderText {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 0 0 85%
+}
+
+.Settings {
+    display: flex;
+    gap: 10px;
+    margin-top: 35%;
+}

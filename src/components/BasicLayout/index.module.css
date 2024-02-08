@@ -1,0 +1,7 @@
+.Layout {
+    height: 100vh;
+}
+
+.LayoutRight {
+    background: no-repeat url("../../../public/img/Main-page_light.png");
+}

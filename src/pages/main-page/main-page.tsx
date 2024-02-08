@@ -3,8 +3,6 @@ import { MainPageContent } from '@components/MainPageContent/index';
 
 export const MainPage: React.FC = () => {
     return (
-        <div>
-            <MainPageContent />
-        </div>
+        <MainPageContent />
     );
 };
