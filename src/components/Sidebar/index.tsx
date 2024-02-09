@@ -1,20 +1,21 @@
-import { FC } from 'react';
+import { FC, } from 'react';
 import { Layout } from 'antd';
-import logo from '/img/logo.svg';
 import styles from './index.module.css';
 import { Menu } from '@components/Menu';
+import logo from '/img/logo.svg';
+import logoCollapsed from '/img/logo_collapsed.svg';
+import { SidebarProps } from './interfaces';
 
 const { Sider } = Layout;
 
-export const Sidebar: FC = () => {
+export const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
     return (
         <Sider
             className={styles.Sider}
-            breakpoint='xxl'
-            collapsedWidth='0'
             width={'208px'}
+            trigger={null} collapsible collapsed={collapsed}
         >
-            <img src={logo} className={styles.Logo} alt='CleverFit' />
+            <img src={collapsed ? logoCollapsed : logo} className={styles.Logo} alt='CleverFit' data-test-id='sider-switch' />
             <Menu />
         </Sider>
     );

@@ -1,3 +1,5 @@
+@import 'antd/dist/antd.less';
+
 @font-face {
     font-family: 'Inter Bold';
     src: url('../public/fonts/Inter-Bold.woff') format('woff'), url('../public/fonts/Inter-Bold.woff2') format('woff2');
@@ -13,14 +15,9 @@
     src: url('../public/fonts/Inter-Regular.woff') format('woff'), url('../public/fonts/Inter-Regular.woff2') format('woff2');
 }
 
-section[class~="ant-layout"] {
-    line-height: 130%;
-}
-
 h1.ant-typography {
     font-family: 'Inter Bold';
     font-size: 38px;
-    line-height: 130%;
     margin: 0
 }
 
@@ -57,7 +54,7 @@ h6 {
 p {
     font-family: 'Inter Regular';
     font-size: 14px;
-    margin: 0
+    margin: 0 !important;
 }
 
 .bold {
@@ -78,4 +75,8 @@ p {
 .str {
     font-family: 'Inter Regular';
     font-size: 12px;
+}
+
+.icon_blue {
+    color: @blue-10;
 }

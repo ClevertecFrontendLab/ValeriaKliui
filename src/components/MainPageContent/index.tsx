@@ -1,14 +1,15 @@
 import { FC } from 'react';
 import { Card, Row, Col } from 'antd';
-import styles from './index.module.css';
+import styles from './index.module.less';
 import { Typography } from 'antd';
-import { HeartFilled, IdcardOutlined, CalendarOutlined } from '@ant-design/icons';
+import { CARDS_INFO } from '@constants/cards/cards';
+
 const { Title } = Typography;
 
 export const MainPageContent: FC = () => {
     return (
-        <div className={styles.mainContent} >
-            <Card  >
+        <div className={styles.MainContent} >
+            <Card>
                 <p >С CleverFit ты сможешь:</p>
                 <p>— планировать свои тренировки на календаре, выбирая тип и уровень нагрузки;</p>
                 <p>— отслеживать свои достижения в разделе статистики, сравнивая свои результаты с нормами и рекордами;</p>
@@ -21,24 +22,13 @@ export const MainPageContent: FC = () => {
                 </Title>
             </Card>
             <Row gutter={40}>
-                <Col >
-                    <Card title='Расписать тренировки' className={styles.Card} bordered={false}>
-                        <HeartFilled />
-                        <p>Тренировки</p>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card title='Назначить календарь' className={styles.Card} bordered={false}>
-                        <CalendarOutlined />
-                        <p>Календарь</p>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card title='Заполнить профиль' className={styles.Card} bordered={false}>
-                        <IdcardOutlined />
-                        <p>Профиль</p>
-                    </Card>
-                </Col>
+                {CARDS_INFO.map(({ title, text, icon, key }) =>
+                    <Col key={key}>
+                        <Card title={title} className={styles.Card} bordered={false} bodyStyle={{ display: 'flex' }}>
+                            {icon}
+                            <p>{text}</p>
+                        </Card>
+                    </Col>)}
             </Row>
         </div >
     );
