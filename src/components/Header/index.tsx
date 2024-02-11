@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Layout, Typography } from 'antd';
-import styles from './index.module.less';
+import styles from './index.module.css';
 import { MenuFoldOutlined, SettingOutlined } from '@ant-design/icons';
 import { Collapsed } from '@components/Sidebar/interfaces';
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const { Header: PageHeader } = Layout;
 
@@ -19,13 +19,13 @@ export const Header: FC<Collapsed> = ({ collapsed, setCollapsed }) => {
                 </div>
             </div>
             <div className={styles.HeaderText}>
-                <p>Главная</p>
+                <Text>Главная</Text>
                 <Title level={1}>Приветствуем тебя в CleverFit — приложении, которое поможет тебе добиться своей мечты!</Title>
             </div>
             <div>
                 <div className={styles.Settings}>
-                    <SettingOutlined />
-                    <p>Настройки</p>
+                    <SettingOutlined className={styles.SettingsIcon} />
+                    <Text className={styles.SettingsText} >Настройки</Text>
                 </div>
             </div>
         </PageHeader>

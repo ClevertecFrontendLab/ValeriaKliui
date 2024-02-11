@@ -2,23 +2,36 @@
 
 @font-face {
     font-family: 'Inter Bold';
-    src: url('../public/fonts/Inter-Bold.woff') format('woff'), url('../public/fonts/Inter-Bold.woff2') format('woff2');
+    src: url('../public/fonts/Inter-Bold.woff') format('woff'),
+        url('../public/fonts/Inter-Bold.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Inter Medium';
-    src: url('../public/fonts/Inter-Medium.woff') format('woff'), url('../public/fonts/Inter-Medium.woff2') format('woff2');
+    src: url('../public/fonts/Inter-Medium.woff') format('woff'),
+        url('../public/fonts/Inter-Medium.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Inter Regular';
-    src: url('../public/fonts/Inter-Regular.woff') format('woff'), url('../public/fonts/Inter-Regular.woff2') format('woff2');
+    src: url('../public/fonts/Inter-Regular.woff') format('woff'),
+        url('../public/fonts/Inter-Regular.woff2') format('woff2');
 }
 
+.ant-typography + h1.ant-typography {
+    margin: 0;
+}
 h1.ant-typography {
     font-family: 'Inter Bold';
     font-size: 38px;
-    margin: 0
+    margin: 0;
+    line-height: 130%;
+    @media (max-width: 834px) {
+        font-size: 24px;
+    }
+    @media (max-width: 640px) {
+        font-size: 20px;
+    }
 }
 
 h2.ant-typography {
@@ -34,6 +47,8 @@ h3.ant-typography {
 h4.ant-typography {
     font-family: 'Inter Medium';
     font-size: 20px;
+    line-height: 130%;
+    margin: 0;
 }
 
 h5.medium {
@@ -46,15 +61,19 @@ h5.bold {
     font-size: 16px;
 }
 
-h6 {
+h6,
+a.ant-typography {
     font-family: 'Inter Regular';
     font-size: 16px;
+    white-space: pre-line;
+    line-height: 130%;
+    margin: 0;
 }
 
-p {
+span.ant-typography {
     font-family: 'Inter Regular';
     font-size: 14px;
-    margin: 0 !important;
+    line-height: 130%;
 }
 
 .bold {
@@ -77,6 +96,9 @@ p {
     font-size: 12px;
 }
 
-.icon_blue {
-    color: @blue-10;
+.color_blue10 {
+     color: #061178;
+}
+.color_blue6{
+    color: @blue-6;
 }

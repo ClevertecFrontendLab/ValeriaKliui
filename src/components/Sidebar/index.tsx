@@ -1,4 +1,4 @@
-import { FC, } from 'react';
+import { FC } from 'react';
 import { Layout } from 'antd';
 import styles from './index.module.css';
 import { Menu } from '@components/Menu';
@@ -13,7 +13,8 @@ export const Sidebar: FC<SidebarProps> = ({ collapsed }) => {
         <Sider
             className={styles.Sider}
             width={'208px'}
-            trigger={null} collapsible collapsed={collapsed}
+            trigger={null}
+            collapsible collapsed={collapsed}
         >
             <img src={collapsed ? logoCollapsed : logo} className={styles.Logo} alt='CleverFit' data-test-id='sider-switch' />
             <Menu />

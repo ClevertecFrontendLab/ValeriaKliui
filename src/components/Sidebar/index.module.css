@@ -1,9 +1,20 @@
 .Sider {
     background-color: white;
     position: relative;
+    @media (max-width: 640px) {
+        overflow: auto;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        z-index: 50;
+    }
+}
+
+.Sider div {
+    height: 100vh;
 }
 
 .Logo {
     margin: 30px 0;
-    margin-bottom: 43px;
+    margin-bottom: 40px;
 }

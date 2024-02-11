@@ -1,0 +1,75 @@
+/* @import 'antd/dist/antd.less'; */
+
+.Header {
+    background-color: #f0f5ff;
+    height: unset;
+    line-height: 130%;
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+    padding: 0 40px 10px 0;
+}
+
+.HeaderText {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 0 0 85%;
+    padding: 15px 24px;
+    @media (max-width: 834px) {
+        flex: 0 0 76%;
+    }
+}
+
+.Settings {
+    display: flex;
+    gap: 10px;
+    margin-top: 50%;
+    @media (max-width: 834px) {
+        margin-top: 65%;
+    }
+    @media (max-width: 640px) {
+        margin-top: 185%;
+        background-color: white;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        border: 1px solid black;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 px 0 1px rgba(0, 0, 0, 0.2);
+    }
+}
+.SettingsIcon {
+    @media (max-width: 834px) {
+        display: none;
+    }
+    @media (max-width: 640px) {
+        display: block;
+    }
+}
+.SettingsText {
+    @media (max-width: 640px) {
+        display: none;
+    }
+}
+.Trigger {
+    cursor: pointer;
+    position: absolute;
+    top: 48%;
+    z-index: 100;
+}
+
+.Trapezia {
+    /* border-left: 25px solid @white; */
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    height: 60px;
+    width: 0;
+}
+
+.TriggerIcon {
+    position: absolute;
+    left: 15%;
+    top: 40%;
+}

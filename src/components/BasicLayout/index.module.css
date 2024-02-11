@@ -1,9 +1,9 @@
 .Layout {
-    height: 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
 }
-
 .LayoutRight {
-    background: no-repeat url("../../../public/img/Main-page_light.png");
+    background: no-repeat url('../../../public/img/Main-page_light.png');
     background-size: cover;
-    background-position: center
+    background-position: center;
 }

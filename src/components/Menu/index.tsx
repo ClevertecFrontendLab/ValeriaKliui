@@ -11,22 +11,22 @@ export const Menu: FC = () => {
             items={[
                 {
                     key: '1',
-                    icon: <CalendarTwoTone className="icon_blue" />,
+                    icon: <CalendarTwoTone twoToneColor={['#061178', '#061178']} />,
                     label: 'Календарь',
                 },
                 {
                     key: '2',
-                    icon: <HeartFilled className="icon_blue" />,
+                    icon: <HeartFilled className="color_blue10" />,
                     label: 'Тренировки',
                 },
                 {
                     key: '3',
-                    icon: <TrophyFilled className="icon_blue" />,
+                    icon: <TrophyFilled className="color_blue10" />,
                     label: 'Достижения',
                 },
                 {
                     key: '4',
-                    icon: <IdcardOutlined className="icon_blue" />,
+                    icon: <IdcardOutlined className="color_blue10" />,
                     label: 'Профиль',
                 },
                 {

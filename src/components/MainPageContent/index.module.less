@@ -1,14 +1,31 @@
 @import 'antd/dist/antd.less';
 
 .MainContent {
-    padding: 24px;
+    padding: 20px 24px;
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 65%;
 }
 
+.MainSpace {
+    flex-basis: 752px;
+}
+
+.Cards {
+    @media (max-width: 640px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
 .Card {
     text-align: center;
-    color: @blue-6;
+    @media (max-width: 834px) {
+        text-align: unset;
+    }
+}
+
+.CardBottom {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 7px 0;
+    height: 100%;
 }
