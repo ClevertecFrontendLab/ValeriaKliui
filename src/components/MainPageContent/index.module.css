@@ -1,13 +1,16 @@
 .MainContent {
     padding: 23px 21px;
     display: flex;
+    @media (max-width: 640px) {
+        padding: 23px 17px 0 17px;
+    }
 }
 
 .MainSpace {
     flex-basis: 752px;
 }
 
-.Cards {
+.CardsGrid {
     @media (max-width: 640px) {
         display: flex;
         flex-direction: column;
