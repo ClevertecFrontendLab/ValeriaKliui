@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { store } from '@redux/configure-store';
 import 'normalize.css';
-import 'antd/dist/antd.less';
-import './global.less';
+import 'antd/dist/antd.css';
+import './global.css';
 import { NAVIGATION_ITEMS } from '@constants/navigation/navigation';
 import { BasicLayout } from '@components/BasicLayout';
 

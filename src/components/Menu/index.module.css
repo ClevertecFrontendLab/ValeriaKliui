@@ -1,0 +1,27 @@
+@import '../../constants/styles/vars.css';
+
+.Menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    @media (max-width: 640px) {
+
+        svg,
+        img {
+            display: none;
+        }
+    }
+}
+
+.ItemBottomed {
+    bottom: 0;
+    gap: 15px;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid var(--gray1);
+
+    @media (max-width: 640px) {
+        padding-left: 30px;
+    }
+}

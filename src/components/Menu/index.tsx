@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Menu as MenuA } from 'antd';
 import { HeartFilled, TrophyFilled, IdcardOutlined, CalendarTwoTone } from '@ant-design/icons';
-import ExitIcon from '/public/img/Exit.svg'
-import styles from './index.module.less'
+import ExitIcon from '/img/Exit.svg'
+import styles from './index.module.css'
 
 export const Menu: FC = () => {
     return <>

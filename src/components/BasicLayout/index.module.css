@@ -1,9 +1,11 @@
 .Layout {
     max-width: 1440px;
     margin: 0 auto;
-}
-.LayoutRight {
-    background: no-repeat url('../../../public/img/Main-page_light.png');
+    background: no-repeat url('../../../img/Main-page_light.png');
     background-size: cover;
     background-position: center;
+}
+
+.LayoutRight {
+    background-color: transparent;
 }

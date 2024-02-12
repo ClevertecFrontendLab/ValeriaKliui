@@ -1,37 +1,41 @@
-@import 'antd/dist/antd.less';
-
 .Footer {
     background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 42px 24px 42px 38px;
+    padding: 42px 24px 43px 38px;
+
     @media (max-width: 640px) {
         flex-direction: column;
         align-items: center;
         gap: 30px;
     }
 }
+
 .FooterCard {
-    flex: 0 0 21%;
+    flex-basis: 240px;
+
     @media (max-width: 640px) {
         width: 100%;
+        flex-basis: unset;
     }
 }
+
 .CardBottom {
     border: none;
 }
+
 .CardAction {
     display: flex;
     gap: 7%;
     justify-content: center;
+    padding: 4%;
 }
+
 .FooterText {
     margin-bottom: 1%;
+
     @media (max-width: 640px) {
         order: 1;
     }
-}
-.SubText {
-    color: @text-color-secondary;
 }
