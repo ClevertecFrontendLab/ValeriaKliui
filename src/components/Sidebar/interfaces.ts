@@ -3,4 +3,6 @@ export interface Collapsed {
     setCollapsed: (collapsed: boolean) => void
 }
 
-export type SidebarProps = Omit<Collapsed, 'setCollapsed'>
+export type SidebarProps = Omit<Collapsed, 'setCollapsed'> & {
+    toggleSidebar: () => void
+}

@@ -18,7 +18,7 @@
         url('../fonts/Inter-Regular.woff2') format('woff2');
 }
 
-.ant-typography + h1.ant-typography {
+.ant-typography+h1.ant-typography {
     margin: 0;
 }
 
@@ -37,7 +37,7 @@ h1.ant-typography {
     @media (max-width: 640px) {
         font-size: 20px;
         font-family: 'Inter Medium';
-        letter-spacing: 0;
+        letter-spacing: -0.6px;
         white-space: unset;
     }
 }
@@ -58,12 +58,9 @@ h4.ant-typography {
     line-height: 130%;
     margin: 0;
     letter-spacing: -0.6px;
-    @media (max-width: 640px) {
-        letter-spacing: 0;
-    }
 }
 
-h4.ant-typography + h4.ant-typography {
+h4.ant-typography+h4.ant-typography {
     margin: 0;
 }
 
@@ -83,6 +80,7 @@ h6 {
     @media (max-width: 834px) {
         letter-spacing: -0.4px;
     }
+
     @media (max-width: 640px) {
         letter-spacing: 0;
     }
@@ -166,8 +164,9 @@ span.ant-menu-item-icon {
 img {
     margin: 0;
 }
+
 .ant-card-body {
     @media (max-width: 640px) {
-        padding: 17px 22px 17px 14px;
+        padding: 17px 22px 15px 14px;
     }
 }
