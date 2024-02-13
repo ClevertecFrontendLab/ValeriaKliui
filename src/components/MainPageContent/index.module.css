@@ -1,9 +1,13 @@
 .MainContent {
-    padding: 23px 21px;
+    padding: 21px;
     display: flex;
 
-    @media (max-width: 640px) {
-        padding: 23px 17px 0;
+    @media (max-width: 834px) {
+        padding: 23px
+    }
+
+    @media (max-width: 480px) {
+        padding: 24px 17px 0;
     }
 }
 
@@ -12,9 +16,10 @@
 }
 
 .CardsGrid {
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
+        row-gap: 10px;
     }
 }
 
@@ -25,7 +30,7 @@
         text-align: unset;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         text-align: center;
     }
 }
@@ -34,6 +39,6 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    padding: 5px 0;
+    padding: 1.5% 0;
     height: 100%;
 }

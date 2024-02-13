@@ -5,7 +5,8 @@
     flex-direction: column;
     gap: 6px;
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
+        gap: 0;
 
         svg,
         img {
@@ -21,7 +22,8 @@
     width: 100%;
     border-top: 1px solid var(--gray1);
 
-    @media (max-width: 640px) {
-        padding-left: 30px;
+    @media (max-width: 480px) {
+        width: unset;
+        padding: 0 24px !important
     }
 }

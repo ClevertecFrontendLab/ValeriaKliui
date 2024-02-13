@@ -7,18 +7,24 @@ const { Title, Text } = Typography;
 
 const { Header: PageHeader } = Layout;
 
-export const Header: FC = () =>
+export const Header: FC = () => (
     <PageHeader className={styles.Header}>
         <div className={styles.HeaderText}>
             <Text>Главная</Text>
             <Title level={1}>{`Приветствуем тебя в CleverFit — приложении,
                 которое поможет тебе добиться своей мечты!`}</Title>
         </div>
-        <div>
-            <div className={styles.Settings}>
+        <div className={styles.SettingsContainer}>
+            <span className={styles.Settings}>
                 <SettingOutlined className={styles.SettingsIcon} />
-                <Text className={styles.SettingsText} >Настройки</Text>
-            </div>
+                <Text className={styles.SettingsText}>Настройки</Text>
+            </span>
         </div>
+        {/* <div >
+            <div >
+                <SettingOutlined className={styles.SettingsIcon} />
+                <Text className={styles.SettingsText}>Настройки</Text>
+            </div>
+        </div> */}
     </PageHeader>
-
+);

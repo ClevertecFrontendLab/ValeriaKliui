@@ -7,10 +7,10 @@
     display: flex;
     padding: 0;
     justify-content: space-between;
-    padding: 0 40px 7px 0;
+    padding: 16px 22px 22px;
 
-    @media (max-width: 640px) {
-        padding: 0 24px 7px 0;
+    @media (max-width: 480px) {
+        padding: 0 32px 7px 0;
     }
 }
 
@@ -18,35 +18,45 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
-    flex: 0 0 90%;
-    padding: 15px 20px;
 
     @media (max-width: 834px) {
-        flex: 0 0 87%;
+        flex: 0 0 82%;
     }
-    @media (max-width: 640px) {
+
+    @media (max-width: 480px) {
         padding: 15px 24px;
         gap: 7px;
-        flex: 0 0 90%;
+        flex: 0 0 93%;
+    }
+}
+
+.SettingsContainer {
+    margin: 2.8% 2%;
+
+    @media (max-width: 834px) {
+        margin: 2.3% 2%;
+    }
+
+    @media (max-width: 480px) {
+        margin: 2.3% 0%;
     }
 }
 
 .Settings {
     display: flex;
     gap: 10px;
-    margin-top: 50%;
 
     @media (max-width: 834px) {
-        margin-top: 65%;
+        margin-top: 25%;
     }
 
-    @media (max-width: 640px) {
-        margin-top: 105%;
+    @media (max-width: 480px) {
+        margin-top: 85%;
         background-color: var(--white);
         border-radius: 50%;
         width: 32px;
         height: 32px;
-        border: 1px solid black;
+        border: 1px solid var(--gray2);
         align-items: center;
         justify-content: center;
         box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
@@ -58,13 +68,13 @@
         display: none;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         display: block;
     }
 }
 
 .SettingsText {
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         display: none;
     }
 }

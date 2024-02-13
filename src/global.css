@@ -18,26 +18,31 @@
         url('../fonts/Inter-Regular.woff2') format('woff2');
 }
 
+/* .ant-typography {
+    word-break: normal;
+}
+*/
+
 .ant-typography+h1.ant-typography {
     margin: 0;
 }
+
+
 
 h1.ant-typography {
     font-family: 'Inter Bold';
     font-size: 38px;
     margin: 0;
     line-height: 130%;
-    letter-spacing: -0.8px;
     white-space: pre-line;
 
     @media (max-width: 834px) {
         font-size: 24px;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         font-size: 20px;
         font-family: 'Inter Medium';
-        letter-spacing: -0.6px;
         white-space: unset;
     }
 }
@@ -57,7 +62,6 @@ h4.ant-typography {
     font-size: 20px;
     line-height: 130%;
     margin: 0;
-    letter-spacing: -0.6px;
 }
 
 h4.ant-typography+h4.ant-typography {
@@ -76,14 +80,6 @@ h5.bold {
 
 h6 {
     margin: 0;
-
-    @media (max-width: 834px) {
-        letter-spacing: -0.4px;
-    }
-
-    @media (max-width: 640px) {
-        letter-spacing: 0;
-    }
 }
 
 h6,
@@ -94,7 +90,7 @@ a.ant-typography {
     line-height: 130%;
     display: block;
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         white-space: pre-line;
     }
 }
@@ -103,10 +99,6 @@ span.ant-typography,
 span.ant-menu-title-content {
     font-family: 'Inter Regular';
     font-size: 14px;
-}
-
-span.ant-menu-title-content {
-    letter-spacing: 0;
 }
 
 .bold {
@@ -144,29 +136,7 @@ span.ant-menu-title-content {
 .ant-layout-sider-collapsed {
     min-width: 64px !important;
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         min-width: 0 !important;
-    }
-}
-
-span.ant-menu-item-icon {
-    @media (max-width: 640px) {
-        display: none;
-    }
-}
-
-.ant-menu-vertical .ant-menu-item {
-    @media (max-width: 640px) {
-        padding: 0;
-    }
-}
-
-img {
-    margin: 0;
-}
-
-.ant-card-body {
-    @media (max-width: 640px) {
-        padding: 17px 22px 15px 14px;
     }
 }

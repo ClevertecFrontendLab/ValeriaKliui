@@ -1,3 +1,5 @@
+@import '../../constants/styles/vars.css';
+
 .Footer {
     background: transparent;
     display: flex;
@@ -5,7 +7,7 @@
     align-items: flex-end;
     padding: 42px 24px 43px 38px;
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         flex-direction: column;
         align-items: center;
         gap: 32px;
@@ -17,7 +19,7 @@
 .FooterCard {
     flex-basis: 240px;
 
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         width: 100%;
         flex-basis: unset;
         text-align: center;
@@ -33,12 +35,17 @@
     gap: 7%;
     justify-content: center;
     padding: 4%;
+    color: var(--black);
 }
 
 .FooterText {
-    margin-bottom: 1%;
+    margin-bottom: 0.5%;
 
-    @media (max-width: 640px) {
+    @media (max-width: 834px) {
+        margin-bottom: 1.4%;
+    }
+
+    @media (max-width: 480px) {
         order: 1;
     }
 }

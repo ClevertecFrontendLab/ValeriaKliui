@@ -10,10 +10,12 @@ const { Content } = Layout;
 
 export const BasicLayout: FC = () => {
     const [collapsed, setCollapsed] = useState(false);
-    const toggleSidebar = () => { setCollapsed(!collapsed) }
-    console.log(collapsed)
+    const toggleSidebar = () => {
+        setCollapsed(!collapsed);
+    };
+
     return (
-        <Layout className={styles.Layout} >
+        <Layout className={styles.Layout}>
             <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
             <Layout className={styles.LayoutRight}>
                 <Header />
