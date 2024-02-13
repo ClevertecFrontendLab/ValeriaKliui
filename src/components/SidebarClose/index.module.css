@@ -2,13 +2,20 @@
     top: 47%;
     cursor: pointer;
     z-index: 100;
-    right: -20px;
+    right: -19px;
     position: absolute;
 
     @media (max-width: 480px) {
         position: fixed;
         top: 4%;
         z-index: 2000;
+        left: 105px;
+    }
+}
+
+.TriggerCollapsed {
+    @media (max-width: 480px) {
+        left: 0;
     }
 }
 
@@ -39,6 +46,6 @@
 
     @media (max-width: 480px) {
         top: 35%;
-        left: 4%;
+        left: 9px;
     }
 }

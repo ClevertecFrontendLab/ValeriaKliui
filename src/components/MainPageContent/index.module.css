@@ -1,14 +1,5 @@
 .MainContent {
-    padding: 21px;
     display: flex;
-
-    @media (max-width: 834px) {
-        padding: 23px
-    }
-
-    @media (max-width: 480px) {
-        padding: 24px 17px 0;
-    }
 }
 
 .MainSpace {

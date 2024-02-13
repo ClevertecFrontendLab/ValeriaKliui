@@ -21,14 +21,6 @@ export default defineConfig({
             '@utils': path.resolve(__dirname, 'src/utils'),
         },
     },
-    // css: {
-    //     preprocessorOptions: {
-    //         less: {
-    //             javascriptEnabled: true,
-    //             additionalData: '@root-entry-name: default;',
-    //         },
-    //     },
-    // },
     css: {
         preprocessorOptions: {
             less: {

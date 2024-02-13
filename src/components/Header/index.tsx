@@ -20,11 +20,5 @@ export const Header: FC = () => (
                 <Text className={styles.SettingsText}>Настройки</Text>
             </span>
         </div>
-        {/* <div >
-            <div >
-                <SettingOutlined className={styles.SettingsIcon} />
-                <Text className={styles.SettingsText}>Настройки</Text>
-            </div>
-        </div> */}
     </PageHeader>
 );

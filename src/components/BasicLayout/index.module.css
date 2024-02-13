@@ -9,3 +9,20 @@
 .LayoutRight {
     background-color: transparent;
 }
+
+.Content {
+    padding: 21px;
+    transition: 0.15s all ease;
+
+    @media (max-width: 834px) {
+        padding: 23px;
+    }
+    @media (max-width: 480px) {
+        padding: 24px 22px 0;
+    }
+}
+.ContentCollapsed {
+    @media (max-width: 480px) {
+        padding: 24px 17px 0;
+    }
+}

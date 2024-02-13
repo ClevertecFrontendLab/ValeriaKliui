@@ -24,6 +24,6 @@
 
     @media (max-width: 480px) {
         width: unset;
-        padding: 0 24px !important
+        padding: 0 24px !important;
     }
 }

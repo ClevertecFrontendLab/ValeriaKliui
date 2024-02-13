@@ -19,7 +19,9 @@ export const BasicLayout: FC = () => {
             <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
             <Layout className={styles.LayoutRight}>
                 <Header />
-                <Content>
+                <Content
+                    className={[styles.Content, collapsed ? styles.ContentCollapsed : ''].join(' ')}
+                >
                     <Outlet />
                 </Content>
                 <Footer />

@@ -18,16 +18,9 @@
         url('../fonts/Inter-Regular.woff2') format('woff2');
 }
 
-/* .ant-typography {
-    word-break: normal;
-}
-*/
-
-.ant-typography+h1.ant-typography {
+.ant-typography + h1.ant-typography {
     margin: 0;
 }
-
-
 
 h1.ant-typography {
     font-family: 'Inter Bold';
@@ -64,7 +57,7 @@ h4.ant-typography {
     margin: 0;
 }
 
-h4.ant-typography+h4.ant-typography {
+h4.ant-typography + h4.ant-typography {
     margin: 0;
 }
 

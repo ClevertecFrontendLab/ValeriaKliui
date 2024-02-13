@@ -14,4 +14,10 @@
             padding: 12px 24px;
         }
     }
+    .ant-card-actions {
+        padding: 2px;
+        @media (max-width: 480px) {
+            padding: 0;
+        }
+    }
 }

@@ -8,14 +8,12 @@ const { useBreakpoint } = Grid;
 
 export const SidebarClose: FC<SidebarCloseProps> = ({ onClick, collapsed }) => {
     const { xs } = useBreakpoint();
-    // const leftStyle = xs ? (collapsed ? 0 : '105px') : 'inherit';
 
     return (
         <div
             onClick={onClick}
-            className={styles.Trigger}
+            className={[styles.Trigger, collapsed ? styles.TriggerCollapsed : ''].join(' ')}
             data-test-id={xs ? 'sider-switch-mobile' : 'sider-switch'}
-        // style={{ left: leftStyle }}
         >
             <div className={styles.Trapezia}>
                 <MenuFoldOutlined className={styles.TriggerIcon} />

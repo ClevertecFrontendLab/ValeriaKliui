@@ -3,7 +3,7 @@ import { Card, Row, Col } from 'antd';
 import styles from './index.module.css';
 import { Typography, Space } from 'antd';
 import { CARDS_INFO } from '@constants/cards/cards';
-import './index.css'
+import './index.css';
 
 const { Title, Text } = Typography;
 
@@ -27,7 +27,7 @@ export const MainPageContent: FC = () => (
                     </Title>
                 </Card>
 
-                <Row gutter={[16, 8]} className={styles.CardsGrid}>
+                <Row gutter={[16, { xs: 10, lg: 8 }]} className={styles.CardsGrid}>
                     {CARDS_INFO.map(({ title, text, icon, key }) => (
                         <Col key={key} sm={8} xs={24}>
                             <Card

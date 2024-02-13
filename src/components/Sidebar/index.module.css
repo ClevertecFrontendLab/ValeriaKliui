@@ -1,12 +1,8 @@
 .Sider {
     background-color: white;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-
-    /* @media (max-width: 834px) {
-        height: 1194px;
-    } */
 
     @media (max-width: 480px) {
         overflow: auto;
