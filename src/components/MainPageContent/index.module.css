@@ -1,0 +1,35 @@
+.MainContent {
+    display: flex;
+}
+
+.MainSpace {
+    flex-basis: 752px;
+}
+
+.CardsGrid {
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+}
+
+.Card {
+    text-align: center;
+
+    @media (max-width: 834px) {
+        text-align: unset;
+    }
+
+    @media (max-width: 480px) {
+        text-align: center;
+    }
+}
+
+.CardBottom {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.5% 0;
+    height: 100%;
+}

@@ -1,0 +1,14 @@
+.ant-menu-item {
+    @media (max-width: 480px) {
+        .anticon {
+            display: none;
+        }
+    }
+}
+
+.ant-menu-vertical .ant-menu-item {
+    @media (max-width: 480px) {
+        padding: 0;
+        margin: 3px 0;
+    }
+}

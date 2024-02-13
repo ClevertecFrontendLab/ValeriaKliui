@@ -1,0 +1,8 @@
+.ant-layout-footer {
+    .ant-card-body {
+        padding: 6px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+}

@@ -1,0 +1,51 @@
+.Trigger {
+    top: 47%;
+    cursor: pointer;
+    z-index: 100;
+    right: -19px;
+    position: absolute;
+
+    @media (max-width: 480px) {
+        position: fixed;
+        top: 4%;
+        z-index: 2000;
+        left: 105px;
+    }
+}
+
+.TriggerCollapsed {
+    @media (max-width: 480px) {
+        left: 0;
+    }
+}
+
+.Trapezia {
+    border-left: 20px solid var(--white);
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    height: 65px;
+    width: 0;
+
+    @media (max-width: 834px) {
+        border-bottom: 6px solid transparent;
+        height: 68px;
+    }
+
+    @media (max-width: 480px) {
+        height: 48px;
+        border-left: 30px solid var(--white);
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+    }
+}
+
+.TriggerIcon {
+    position: absolute;
+    left: 10%;
+    top: 38%;
+
+    @media (max-width: 480px) {
+        top: 35%;
+        left: 9px;
+    }
+}

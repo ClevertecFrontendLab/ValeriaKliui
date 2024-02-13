@@ -1,0 +1,28 @@
+.Layout {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: no-repeat url('../../../img/Main-page_light.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.LayoutRight {
+    background-color: transparent;
+}
+
+.Content {
+    padding: 21px;
+    transition: 0.15s all ease;
+
+    @media (max-width: 834px) {
+        padding: 23px;
+    }
+    @media (max-width: 480px) {
+        padding: 24px 22px 0;
+    }
+}
+.ContentCollapsed {
+    @media (max-width: 480px) {
+        padding: 24px 17px 0;
+    }
+}
