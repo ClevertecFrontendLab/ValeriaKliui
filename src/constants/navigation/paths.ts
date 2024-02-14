@@ -1,5 +1,5 @@
 const PathConstants = {
-    AUTH: "/auth",
-}
+    AUTH: 'auth',
+};
 
-export default PathConstants
+export default PathConstants;

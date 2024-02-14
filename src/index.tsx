@@ -9,16 +9,10 @@ import './global.css';
 import { HistoryRouter } from 'redux-first-history/rr6';
 import { history } from '@redux/configure-store'
 import { NAVIGATION_ITEMS } from '@constants/navigation/routes';
+import PathConstants from '@constants/navigation/paths';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
-
-// const router = createHashRouter([
-//     {
-//         element: <BasicLayout />,
-//         children: NAVIGATION_ITEMS,
-//     },
-// ]);
 
 root.render(
     <React.StrictMode>

@@ -17,7 +17,9 @@
     justify-content: center;
 }
 
-.Content {
+.AuthContent {
     padding: 64px 85.5px 174px;
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
 }
