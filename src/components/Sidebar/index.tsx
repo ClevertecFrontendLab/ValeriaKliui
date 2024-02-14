@@ -26,11 +26,13 @@ export const Sidebar: FC<SidebarProps> = ({ collapsed, toggleSidebar }) => {
                 collapsed={collapsed}
                 collapsible
             >
-                <img
-                    src={collapsed ? logoCollapsed : logo}
-                    className={styles.Logo}
-                    alt='CleverFit'
-                />
+                <div className={styles.LogoContainer}>
+                    <img
+                        src={collapsed ? logoCollapsed : logo}
+                        alt='CleverFit'
+                        className={styles.Logo}
+                    />
+                </div>
                 <Menu />
                 {!xs && <SidebarClose onClick={toggleSidebar} />}
             </Sider>

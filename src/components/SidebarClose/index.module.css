@@ -5,9 +5,13 @@
     right: -19px;
     position: absolute;
 
+    @media (max-width: 834px) {
+        top: 55%;
+    }
+
     @media (max-width: 480px) {
         position: fixed;
-        top: 4%;
+        top: 2%;
         z-index: 2000;
         left: 105px;
     }

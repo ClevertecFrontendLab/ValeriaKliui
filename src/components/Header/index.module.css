@@ -1,7 +1,7 @@
 @import '../../constants/styles/vars.css';
 
 .Header {
-    background-color: #f0f5ff;
+    background-color: var(--blue1);
     height: unset;
     line-height: 130%;
     display: flex;
@@ -59,7 +59,7 @@
         border: 1px solid var(--gray2);
         align-items: center;
         justify-content: center;
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 1px var(--shadow);
     }
 }
 
@@ -75,6 +75,7 @@
 
 .SettingsText {
     word-break: normal;
+
     @media (max-width: 480px) {
         display: none;
     }

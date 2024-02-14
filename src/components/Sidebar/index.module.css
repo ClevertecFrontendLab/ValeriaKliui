@@ -1,8 +1,10 @@
+@import '../../constants/styles/vars.css';
+
 .Sider {
-    background-color: white;
+    background-color: var(--white);
     position: relative;
     min-height: 100vh;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px 0 var(--shadow);
 
     @media (max-width: 480px) {
         overflow: auto;
@@ -12,8 +14,11 @@
     }
 }
 
-.Logo {
-    margin: 30px 0 40px;
+.LogoContainer {
+    margin: 30px -2px 42px 0;
+    transition: var(--animation);
+    list-style: none;
+    overflow: hidden;
 
     @media (max-width: 834px) {
         margin: 30px 0 43px;
@@ -21,6 +26,11 @@
 
     @media (max-width: 480px) {
         margin: 10px 0 20px;
-        width: 100%;
+    }
+}
+
+.Logo {
+    @media (max-width: 480px) {
+        width: 100%
     }
 }
