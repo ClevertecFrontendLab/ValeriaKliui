@@ -1,17 +1,29 @@
-import { FC } from "react";
+import { FC, } from "react";
 import { Button, Checkbox, Form, Input, Tabs } from 'antd';
 import { GooglePlusOutlined } from "@ant-design/icons";
 import { AUTH_TABS } from "@constants/menu/menu";
-import { useLoginUserMutation } from "@redux/services/login";
+import { useLoginUser } from "@hooks/useLoginUser";
+import { RuleObject } from "antd/lib/form";
+import { useSelector } from "react-redux";
 
 export const LoginForm: FC = () => {
+    const isSomeQueryPending = useSelector(state => console.log(Object.values(state).map(api => { api.mutations && console.log(Object.values(api.mutations)[0] && Object.values(api.mutations)[0].status) })))
+
+    console.log(isSomeQueryPending)
     const prefixSelector = (
         <Form.Item name="prefix" noStyle>
             <div>e-mail:</div>
         </Form.Item>
     );
 
-    const [loginUser] = useLoginUserMutation()
+    const validatePassword = () => ({
+        validator(_: RuleObject, value: string) {
+            if (new RegExp(/^(?=.*\d)(?=.*[A-Z])[a-zA-Z0-9]{8,}$/).test(value)) return Promise.resolve();
+            return Promise.reject(new Error('Пароль не менее 8 символов, с заглавной буквой и цифрой'));
+        }
+    })
+
+    const loginUser = useLoginUser()
 
     return <>
         <Tabs defaultActiveKey='1' items={AUTH_TABS} />
@@ -19,16 +31,17 @@ export const LoginForm: FC = () => {
             name="normal_login"
             className="login-form"
             initialValues={{ remember: true }}
+            onFinish={loginUser}
         >
             <Form.Item
-                name="username"
-                rules={[{ required: true, message: 'Please input your Username!' }]}
+                name="email"
+                rules={[{ required: true, message: 'Пожалуйста, введите корректный email.', type: 'email' }]}
             >
                 <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item
                 name="password"
-                rules={[{ required: true, message: 'Please input your Password!' }]}
+                rules={[validatePassword]}
             >
                 <Input.Password placeholder="Пароль" />
             </Form.Item>
@@ -42,7 +55,8 @@ export const LoginForm: FC = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button type="primary" htmlType="submit" block className="login-form-button" onClick={() => loginUser({ email: 'askjalsdjsal@LKDA.com', password: 'KLKjlasdas9' })}>
+                <Button type="primary" htmlType="submit" block className="login-form-button"
+                >
                     Войти
                 </Button>
             </Form.Item>

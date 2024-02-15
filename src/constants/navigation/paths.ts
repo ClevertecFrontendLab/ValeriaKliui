@@ -1,5 +1,6 @@
-const PathConstants = {
-    AUTH: 'auth',
-};
+export enum PATHS {
+    AUTH = 'auth',
+    HOME = '/',
+    LOGIN_ERROR = 'result/error-login'
+}
 
-export default PathConstants;

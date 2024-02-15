@@ -1,7 +1,7 @@
 @import '../../constants/styles/vars.css';
 
 .Layout {
-    background: url('../../../public/img/Enter-page_light.png');
+    background: url('../../../img/Enter-page_light.png');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
