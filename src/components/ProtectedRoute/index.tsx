@@ -5,9 +5,9 @@ import { ProtectedRouteProps } from "./interfaces";
 import { PATHS } from "@constants/navigation/paths";
 
 export const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
-    const [storagedToken] = useLocalStorage('accessToken');
+    const { storagedValue } = useLocalStorage('accessToken');
 
-    if (!storagedToken) {
+    if (!storagedValue) {
         return <Navigate to={PATHS.AUTH} replace />;
     }
 

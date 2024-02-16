@@ -1,6 +1,5 @@
 import { AuthError } from '@components/AuthError';
 import LoginErrorIcon from '/img/LoginError.svg';
-import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
 
 export const LoginError = () => <AuthError

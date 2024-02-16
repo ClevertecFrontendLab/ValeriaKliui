@@ -13,7 +13,8 @@ export const store = configureStore({
         router: routerReducer,
         [loginApi.reducerPath]: loginApi.reducer,
     }),
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware).concat(loginApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(routerMiddleware).concat(loginApi.middleware),
 });
 
 export const history = createReduxHistory(store);

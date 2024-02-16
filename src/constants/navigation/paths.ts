@@ -1,6 +1,5 @@
 export enum PATHS {
-    AUTH = 'auth',
+    AUTH = '/auth',
     MAIN = '/main',
-    LOGIN_ERROR = 'result/error-login'
+    LOGIN_ERROR = 'result/error-login',
 }
-

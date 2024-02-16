@@ -9,39 +9,27 @@ export const useLoginUser = () => {
     const navigate = useNavigate();
     const { accessToken } = data ?? {};
 
-    const [storagedToken, addTokenToStorage] = useLocalStorage('accessToken');
-
-    // useEffect(() => {
-    //     if (data != null) {
-    //         console.log('was called')
-    //         addTokenToStorage(accessToken)
-    //     }
-    //     console.log('data', data)
-    //     // console.log('accessToken', data && data.accessToken)
-    //     if (data && data.accessToken) navigate(PATHS.MAIN);
-    //     if (isError) navigate(PATHS.LOGIN_ERROR);
-    // }, [data, accessToken, addTokenToStorage, isError, navigate]);
+    const { storagedValue, setStoragedValue, removeFromStorage } = useLocalStorage('accessToken');
 
     useEffect(() => {
         if (accessToken) {
-            console.log(accessToken)
-            addTokenToStorage(accessToken);
+            setStoragedValue(accessToken);
         }
-        if (storagedToken) navigate(PATHS.MAIN)
+        if (storagedValue) navigate(PATHS.MAIN);
         if (isError) navigate(PATHS.LOGIN_ERROR);
-    }, [accessToken, addTokenToStorage, navigate, storagedToken, isError])
+    }, [accessToken, storagedValue, navigate, setStoragedValue, isError]);
 
     const login = (userData) => {
         const { email, password } = userData;
         loginUser({
             email,
-            password
+            password,
         });
     };
 
     const logOut = () => {
-        // addTokenToStorage(null)
-        // navigate(PATHS.AUTH)
+        removeFromStorage();
+        navigate(PATHS.AUTH, { replace: true });
     };
 
     return { login, logOut };
