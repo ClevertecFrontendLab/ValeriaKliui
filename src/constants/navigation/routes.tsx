@@ -8,9 +8,9 @@ import { Route, Routes } from 'react-router-dom';
 import { PATHS } from './paths';
 
 export const NAVIGATION_ITEMS = (
-    <Routes>
-        <Route element={<ProtectedRoute />}>
-            <Route path={PATHS.HOME} element={<BasicLayout />}>
+    <Routes >
+        <Route element={<ProtectedRoute />} >
+            <Route path={PATHS.MAIN} element={<BasicLayout />}>
                 <Route index element={<MainPage />} />
             </Route>
         </Route>
@@ -18,6 +18,10 @@ export const NAVIGATION_ITEMS = (
         <Route path={PATHS.AUTH} element={<AuthLayout />}>
             <Route index element={<LoginForm />} />
             <Route path={PATHS.LOGIN_ERROR} element={<LoginError />} />
+        </Route>
+
+        <Route path="*" element={<AuthLayout />}>
+            <Route index element={<LoginForm />} />
         </Route>
     </Routes>
 );

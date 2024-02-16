@@ -4,12 +4,8 @@ import { GooglePlusOutlined } from "@ant-design/icons";
 import { AUTH_TABS } from "@constants/menu/menu";
 import { useLoginUser } from "@hooks/useLoginUser";
 import { RuleObject } from "antd/lib/form";
-import { useSelector } from "react-redux";
 
 export const LoginForm: FC = () => {
-    const isSomeQueryPending = useSelector(state => console.log(Object.values(state).map(api => { api.mutations && console.log(Object.values(api.mutations)[0] && Object.values(api.mutations)[0].status) })))
-
-    console.log(isSomeQueryPending)
     const prefixSelector = (
         <Form.Item name="prefix" noStyle>
             <div>e-mail:</div>
@@ -23,7 +19,7 @@ export const LoginForm: FC = () => {
         }
     })
 
-    const loginUser = useLoginUser()
+    const { login } = useLoginUser()
 
     return <>
         <Tabs defaultActiveKey='1' items={AUTH_TABS} />
@@ -31,7 +27,7 @@ export const LoginForm: FC = () => {
             name="normal_login"
             className="login-form"
             initialValues={{ remember: true }}
-            onFinish={loginUser}
+            onFinish={login}
         >
             <Form.Item
                 name="email"

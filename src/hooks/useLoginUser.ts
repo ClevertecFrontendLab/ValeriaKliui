@@ -5,24 +5,44 @@ import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
 
 export const useLoginUser = () => {
-    const [loginUser, { data, isError, isLoading }] = useLoginUserMutation();
+    const [loginUser, { data, isError }] = useLoginUserMutation();
     const navigate = useNavigate();
+    const { accessToken } = data ?? {};
 
     const [storagedToken, addTokenToStorage] = useLocalStorage('accessToken');
 
-    useEffect(() => {
-        if (data != null) addTokenToStorage(data.accessToken);
-        if (storagedToken) navigate(PATHS.HOME);
-        if (isError) navigate(PATHS.LOGIN_ERROR);
-    }, [data, addTokenToStorage, navigate, storagedToken, isError]);
+    // useEffect(() => {
+    //     if (data != null) {
+    //         console.log('was called')
+    //         addTokenToStorage(accessToken)
+    //     }
+    //     console.log('data', data)
+    //     // console.log('accessToken', data && data.accessToken)
+    //     if (data && data.accessToken) navigate(PATHS.MAIN);
+    //     if (isError) navigate(PATHS.LOGIN_ERROR);
+    // }, [data, accessToken, addTokenToStorage, isError, navigate]);
 
-    const login = () => {
+    useEffect(() => {
+        if (accessToken) {
+            console.log(accessToken)
+            addTokenToStorage(accessToken);
+        }
+        if (storagedToken) navigate(PATHS.MAIN)
+        if (isError) navigate(PATHS.LOGIN_ERROR);
+    }, [accessToken, addTokenToStorage, navigate, storagedToken, isError])
+
+    const login = (userData) => {
+        const { email, password } = userData;
         loginUser({
-            email: 'valeria@example.com',
-            password:
-                '0fHJPhRWIbVWTP7EEdkrbu1vSdTDXtd70PR9wcu5mYoCHr77YI16Yir5HRfhZKEG55h6YAjrAwHfGVdsPKmGUvJG8',
+            email,
+            password
         });
     };
 
-    return login;
+    const logOut = () => {
+        // addTokenToStorage(null)
+        // navigate(PATHS.AUTH)
+    };
+
+    return { login, logOut };
 };

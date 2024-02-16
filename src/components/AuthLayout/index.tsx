@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './index.module.css';
 import { Outlet } from 'react-router-dom';
-import Logo from '../../../public/img/logo.svg';
+import Logo from '/img/logo.svg';
 
 export const AuthLayout: FC = () => {
     return (

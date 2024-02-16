@@ -8,6 +8,9 @@ import './global.css';
 import { HistoryRouter } from 'redux-first-history/rr6';
 import { history } from '@redux/configure-store'
 import { NAVIGATION_ITEMS } from '@constants/navigation/routes';
+import { LoginForm } from '@components/LoginForm';
+import { Sidebar } from '@components/Sidebar';
+import { Loader } from '@components/Loader';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
@@ -16,7 +19,10 @@ const root = createRoot(domNode);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <HistoryRouter history={history} >{NAVIGATION_ITEMS}</HistoryRouter>
+            <HistoryRouter history={history}>
+                {NAVIGATION_ITEMS}
+            </HistoryRouter>
+            <Loader />
         </Provider>
     </React.StrictMode>,
 );
