@@ -1,4 +1,4 @@
-import { useLoginUserMutation } from '@redux/services/login';
+import { useLoginUserMutation } from '@redux/services/authorize';
 import { useLocalStorage } from './useLocalStorage';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
