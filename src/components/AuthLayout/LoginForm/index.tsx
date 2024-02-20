@@ -1,23 +1,41 @@
-import { FC, } from "react";
-import { Button, Checkbox, Form, Input, Tabs } from 'antd';
+import { FC, MouseEvent, useState, } from "react";
+import { Button, Checkbox, Form, Input, } from 'antd';
 import { GooglePlusOutlined } from "@ant-design/icons";
 import { useLoginUser } from "@hooks/useLoginUser";
+import Link from "antd/lib/typography/Link";
+import { useResetPassword } from "@hooks/useResetPassword";
 
 export const LoginForm: FC = () => {
+    const [formData, setFormData] = useState<FormData | null>(null)
+    const [isEmailValidated, setIsEmailValidated] = useState(false);
+    const { login } = useLoginUser();
+
     const emailPrefix = (
         <Form.Item name="prefix" noStyle>
             <div>e-mail:</div>
         </Form.Item>
     );
-
-
-    const { login } = useLoginUser()
+    const { resetPassword } = useResetPassword()
+    const reset = (e: MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        resetPassword(formData)
+    }
 
     return <Form
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
         onFinish={login}
+        onValuesChange={(fieldsData) => setFormData(fieldsData)}
+        onFieldsChange={(fieldsData) => {
+            fieldsData.some(({ name, errors }) => {
+                if (name[0] === 'email') {
+                    if (errors && errors.length === 0) setIsEmailValidated(true);
+                    else setIsEmailValidated(false);
+                }
+                else setIsEmailValidated(true)
+            })
+        }}
     >
         <Form.Item
             name="email"
@@ -29,15 +47,15 @@ export const LoginForm: FC = () => {
             name="password"
             rules={[{ required: true, message: 'Пожалуйста, введите пароль.' }]}
         >
-            <Input.Password placeholder="Пароль" />
+            <Input.Password placeholder="Пароль" autoComplete="on" />
         </Form.Item>
         <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox>Запомнить меня</Checkbox>
             </Form.Item>
-            <a className="login-form-forgot" href="">
+            <Link className="login-form-forgot" onClick={reset} href="" disabled={!isEmailValidated}>
                 Забыли пароль?
-            </a>
+            </Link>
         </Form.Item>
 
         <Form.Item>

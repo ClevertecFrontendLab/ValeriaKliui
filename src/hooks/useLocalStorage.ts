@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { UseLocalStorageReturns } from './interfaces';
 
-export const useLocalStorage = (key: string) => {
+export const useLocalStorage = (key: string): UseLocalStorageReturns => {
     const savedData = localStorage.getItem(key);
     const parsedData = savedData != null ? JSON.parse(savedData) : null;
     const [storagedValue, setStoragedValue] = useState(parsedData);
@@ -10,9 +11,6 @@ export const useLocalStorage = (key: string) => {
             localStorage.setItem(key, JSON.stringify(storagedValue));
         }
 
-        // if (storagedValue == null && savedData) {
-        //     localStorage.removeItem(key);
-        // }
     }, [key, storagedValue]);
 
     const removeFromStorage = () => localStorage.removeItem(key);

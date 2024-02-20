@@ -7,19 +7,24 @@ import { Tabs } from 'antd';
 
 export const AuthLayout: FC = () => {
     const { pathname } = useLocation();
-    const isError = pathname.includes('result')
+    const isAuthMessage = pathname.includes('result');
     const navigate = useNavigate();
     const changePaths = (activeKey: string) => {
-        navigate(AUTH_TABS[Number(activeKey) - 1].path)
-    }
+        navigate(AUTH_TABS[Number(activeKey) - 1].path);
+    };
+    const activePath = pathname.slice(pathname.lastIndexOf('/') + 1);
+    const activeKey = AUTH_TABS.find((tab) => tab.path.includes(activePath))?.key;
+
     return (
         <div className={styles.Layout}>
             <div className={styles.ContentContainer}>
                 <div className={styles.AuthContent}>
-                    {!isError && <>
-                        <img src={Logo} />
-                        <Tabs defaultActiveKey='1' items={AUTH_TABS} onChange={changePaths} />
-                    </>}
+                    {!isAuthMessage && (
+                        <>
+                            <img src={Logo} />
+                            <Tabs activeKey={activeKey} items={AUTH_TABS} onChange={changePaths} />
+                        </>
+                    )}
                     <Outlet />
                 </div>
             </div>

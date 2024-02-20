@@ -3,8 +3,9 @@ import { useLocalStorage } from './useLocalStorage';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
+import { UseLoginUserReturns, UserData } from './interfaces';
 
-export const useLoginUser = () => {
+export const useLoginUser = (): UseLoginUserReturns => {
     const [loginUser, { data, isError }] = useLoginUserMutation();
     const navigate = useNavigate();
     const { accessToken } = data ?? {};
@@ -17,14 +18,15 @@ export const useLoginUser = () => {
         }
         if (storagedValue) navigate(PATHS.MAIN);
         if (isError) navigate(PATHS.LOGIN_ERROR);
-    }, [accessToken, storagedValue, navigate, setStoragedValue, isError]);
+    }, [accessToken, storagedValue, navigate, setStoragedValue, isError, data]);
 
-    const login = (userData) => {
+
+    const login = async (userData: UserData) => {
         const { email, password } = userData;
-        loginUser({
+        await loginUser({
             email,
             password,
-        });
+        }).unwrap();
     };
 
     const logOut = () => {

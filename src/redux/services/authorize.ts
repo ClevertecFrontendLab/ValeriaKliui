@@ -1,59 +1,43 @@
+import { BASE_URL } from '@constants/index';
+import { UserData } from '@hooks/interfaces';
+import { RootState } from '@redux/configure-store';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const authorizeApi = createApi({
-    reducerPath: 'authorizeApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${BASE_URL}/api/`,
+        baseUrl: `${BASE_URL}/auth/`,
+        prepareHeaders: (headers, { getState }) => {
+            const token = (getState() as RootState).auth.token
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`)
+            }
+            return headers
+        }
     }),
+
     endpoints: (builder) => ({
-        registerUser: builder.mutation({
-            query(body) {
-                return {
-                    url: 'registration',
-                    method: 'POST',
-                    body,
-                };
-            },
-        }),
         loginUser: builder.mutation({
-            query(body) {
-                return {
-                    url: 'login',
-                    method: 'POST',
-                    body,
-                    credentials: 'include',
-                };
-            },
-            async onQueryStarted(args, { dispatch, queryFulfilled }) {
-                try {
-                    await queryFulfilled;
-                    await dispatch(userApi.endpoints.getMe.initiate(null));
-                } catch (error) {}
-            },
+            query: (credentials: UserData) => ({
+                url: 'login',
+                method: 'POST',
+                body: credentials,
+            }),
         }),
-        logoutUser: builder.mutation({
-            query() {
-                return {
-                    url: 'logout',
-                    credentials: 'include',
-                };
-            },
+        register: builder.mutation({
+            query: (body: UserData) => ({
+                url: 'registration',
+                method: 'POST',
+                body,
+            }),
         }),
-        // registerUser: builder.mutation({
-        //     query: (body) => ({
-        //         url: 'registration',
-        //         method: 'POST',
-        //         body,
-        //     }),
-        // }),
-        // loginUser: builder.mutation({
-        //     query: (body) => ({
-        //         url: 'login',
-        //         method: 'POST',
-        //         body,
-        //     }),
-        // }),
+        resetPassword: builder.mutation({
+            query: (body: Pick<UserData, 'email'>) => ({
+                url: 'check-email',
+                method: 'POST',
+                body,
+            }),
+        }),
     }),
 });
 
-export const { useLoginUserMutation, useRegisterUserMutation } = authorizeApi;
+export const { useLoginUserMutation, useRegisterMutation, useResetPasswordMutation } = authorizeApi;
