@@ -4,29 +4,36 @@ import { GooglePlusOutlined } from "@ant-design/icons";
 import { useLoginUser } from "@hooks/useLoginUser";
 import Link from "antd/lib/typography/Link";
 import { useResetPassword } from "@hooks/useResetPassword";
+import { saveLoginedUser } from "@redux/slices/authSlice";
+import { useDispatch } from "react-redux";
+import { FormData } from "@hooks/interfaces";
 
 export const LoginForm: FC = () => {
     const [formData, setFormData] = useState<FormData | null>(null)
     const [isEmailValidated, setIsEmailValidated] = useState(false);
     const { login } = useLoginUser();
+    const dispatch = useDispatch();
 
-    const emailPrefix = (
-        <Form.Item name="prefix" noStyle>
-            <div>e-mail:</div>
-        </Form.Item>
-    );
     const { resetPassword } = useResetPassword()
     const reset = (e: MouseEvent<HTMLElement>) => {
         e.preventDefault();
         resetPassword(formData)
     }
 
+    const emailPrefix = (
+        <Form.Item name="prefix" noStyle>
+            <div>e-mail:</div>
+        </Form.Item>
+    );
     return <Form
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
         onFinish={login}
-        onValuesChange={(fieldsData) => setFormData(fieldsData)}
+        onValuesChange={(fieldsData) => {
+            setFormData(fieldsData);
+            dispatch(saveLoginedUser(fieldsData))
+        }}
         onFieldsChange={(fieldsData) => {
             fieldsData.some(({ name, errors }) => {
                 if (name[0] === 'email') {

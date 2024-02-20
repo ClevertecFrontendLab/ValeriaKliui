@@ -15,6 +15,9 @@ const authSlice = createSlice({
         saveRegisteredUser: (state, action: PayloadAction<UserData>) => {
             state.user = action.payload;
         },
+        saveLoginedUser: (state, action: PayloadAction<UserData>) => {
+            state.user = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder.addMatcher(
@@ -27,6 +30,7 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { saveRegisteredUser } = authSlice.actions
+export const { saveRegisteredUser, saveLoginedUser } = authSlice.actions;
 
 export const selectRegisteredUser = (state: RootState) => state.auth.user;
+export const selectEmail = (state: RootState) => state.auth.user?.email;

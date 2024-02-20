@@ -1,17 +1,17 @@
 export interface UseLocalStorageReturns {
     storagedValue: string;
     setStoragedValue: (key: string) => void;
-    removeFromStorage: () => void
+    removeFromStorage: () => void;
 }
 
 export interface UserData {
     email: string;
-    password: string
+    password: string;
 }
 
 export interface UseLoginUserReturns {
     logOut: () => void;
-    login: (userData: UserData) => void
+    login: (userData: UserData) => void;
 }
 
 export interface ErrorType {
@@ -19,8 +19,8 @@ export interface ErrorType {
     data: {
         statusCode: number;
         error: string;
-        message: string
-    }
+        message: string;
+    };
 }
 
-export type FormData = Record<string, string> & { email: string } 
+export type FormData = Record<string, string> & { email: string; password: string };

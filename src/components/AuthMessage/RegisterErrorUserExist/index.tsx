@@ -1,5 +1,5 @@
 import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '../../../../public/img/RegisterError.svg';
+import RegisterErrorIcon from '/img/RegisterError.svg';
 import { PATHS } from '@constants/navigation/paths';
 import { FC } from 'react';
 

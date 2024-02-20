@@ -11,5 +11,5 @@ export enum PATHS {
     FORGOT_PASSWORD_ERROR = 'result/error-check-email',
     CHANGE_PASSWORD = 'change-password',
     CHANGE_PASSWORD_ERROR = 'error-change-password',
-    CHANGE_PASSWORD_SUCCESS = 'result/success-change-password'
+    CHANGE_PASSWORD_SUCCESS = 'result/success-change-password',
 }

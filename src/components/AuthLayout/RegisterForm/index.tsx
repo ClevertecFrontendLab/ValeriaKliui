@@ -1,21 +1,11 @@
 import { Button, Form, Input } from 'antd';
 import { FC } from 'react';
-import { RuleObject } from 'antd/lib/form';
 import { GooglePlusOutlined } from '@ant-design/icons';
 import { useRegisterUser } from '@hooks/useRegisterUser';
 import { UserData } from '@hooks/interfaces';
+import { validatePassword } from '@utils/validatePassword';
 
 export const RegisterForm: FC = () => {
-    const validatePassword = () => ({
-        validator(_: RuleObject, value: string) {
-            if (new RegExp(/^(?=.*\d)(?=.*[A-Z])[a-zA-Z0-9]{8,}$/).test(value))
-                return Promise.resolve();
-            return Promise.reject(
-                new Error('Пароль не менее 8 символов, с заглавной буквой и цифрой'),
-            );
-        },
-    });
-
     const emailPrefix = (
         <Form.Item name='prefix' noStyle>
             <div>e-mail:</div>

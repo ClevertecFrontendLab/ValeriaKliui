@@ -10,6 +10,8 @@ import { RegisterForm } from '@components/AuthLayout/RegisterForm';
 import { RegisterSuccess } from '@components/AuthMessage/RegisterSuccess';
 import { RegisterErrorUserExist } from '@components/AuthMessage/RegisterErrorUserExist';
 import { RegisterError } from '@components/AuthMessage/RegisterError';
+import { ForgotPasswordForm } from '@components/AuthLayout/ForgotPasswordForm';
+import { ChangePasswordForm } from '@components/AuthLayout/ChangePasswordForm';
 
 export const NAVIGATION_ITEMS = (
     <Routes >
@@ -26,9 +28,10 @@ export const NAVIGATION_ITEMS = (
             <Route path={`${PATHS.REGISTER}/${PATHS.REGISTER_SUCCESS}`} element={<RegisterSuccess />} />
             <Route path={`${PATHS.REGISTER}/${PATHS.REGISTER_ERROR_USER_EXIST}`} element={<RegisterErrorUserExist />} />
             <Route path={`${PATHS.REGISTER}/${PATHS.REGISTER_ERROR}`} element={<RegisterError />} />
-            <Route path={PATHS.FORGOT_PASSWORD} element={<>NOW TO RESTORE</>} />
+            <Route path={PATHS.FORGOT_PASSWORD} element={<ForgotPasswordForm />} />
             <Route path={PATHS.FORGOT_PASSWORD_ERROR} element={<>error</>} />
             <Route path={PATHS.FORGOT_PASSWORD_ERROR_NO_EMAIL} element={<>NO EMAIL</>} />
+            <Route path={PATHS.CHANGE_PASSWORD} element={<ChangePasswordForm />} />
         </Route>
 
         <Route path="*" element={<AuthLayout />}>

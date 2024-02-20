@@ -1,5 +1,5 @@
 import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '../../../../public/img/RegisterError.svg';
+import RegisterErrorIcon from '/img/RegisterError.svg';
 import { FC } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { selectRegisteredUser } from '@redux/slices/authSlice';
