@@ -28,6 +28,7 @@ export const AuthLayout: FC = () => {
                                 items={AUTH_TABS}
                                 onChange={changePaths}
                                 size='large'
+                                className='text'
                             />
                         </>
                     )}

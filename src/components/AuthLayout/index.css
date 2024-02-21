@@ -2,6 +2,10 @@
     height: 40px;
     max-height: 40px;
 }
+.ant-form-item input::placeholder {
+    font-family: 'Inter Regular';
+    font-size: 14px;
+}
 
 .ant-input-affix-wrapper {
     padding: 0 11px;
@@ -12,10 +16,14 @@
 }
 
 .ant-input-group-addon {
-    width: 70px
+    width: 70px;
 }
 
 .ant-form-item-control-input-content {
     display: flex;
     justify-content: space-between;
+}
+.ant-btn {
+    font-family: 'Inter Regular';
+    font-size: 16px;
 }

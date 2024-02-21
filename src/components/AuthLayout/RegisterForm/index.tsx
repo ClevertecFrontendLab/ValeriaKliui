@@ -4,6 +4,8 @@ import { GooglePlusOutlined } from '@ant-design/icons';
 import { useRegisterUser } from '@hooks/useRegisterUser';
 import { UserData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
+import { Typography } from 'antd';
+const { Text } = Typography
 
 export const RegisterForm: FC = () => {
     const register = useRegisterUser();
@@ -11,7 +13,7 @@ export const RegisterForm: FC = () => {
 
     const emailPrefix = (
         <Form.Item name='prefix' noStyle>
-            <div>e-mail:</div>
+            <Text>e-mail:</Text>
         </Form.Item>
     );
 
@@ -38,6 +40,7 @@ export const RegisterForm: FC = () => {
                 name='password'
                 rules={[validatePassword]}
                 help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
+                className='str'
             >
                 <Input.Password placeholder='Пароль' data-test-id='registration-password' />
             </Form.Item>
@@ -63,13 +66,13 @@ export const RegisterForm: FC = () => {
                 <Input.Password placeholder='Повторите пароль' data-test-id='registration-confirm-password' />
             </Form.Item>
             <Form.Item>
-                <Button type='primary' htmlType='submit' block data-test-id='registration-submit-button'>
+                <Button type='primary' htmlType='submit' block data-test-id='registration-submit-button' size='large'>
                     Войти
                 </Button>
             </Form.Item>
 
             <Form.Item>
-                <Button icon={<GooglePlusOutlined />} htmlType='submit' block>
+                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large'>
                     Регистрация через Google
                 </Button>
             </Form.Item>

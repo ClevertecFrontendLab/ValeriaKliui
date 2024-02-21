@@ -8,6 +8,9 @@ import { saveLoginedUser } from '@redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 import { FormData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
+import styles from './index.module.css'
+import { Typography } from 'antd';
+const { Text } = Typography
 
 export const LoginForm: FC = () => {
     const [formData, setFormData] = useState<FormData | null>(null);
@@ -23,7 +26,7 @@ export const LoginForm: FC = () => {
 
     const emailPrefix = (
         <Form.Item name='prefix' noStyle>
-            <div>e-mail:</div>
+            <Text>e-mail:</Text>
         </Form.Item>
     );
     return (
@@ -62,16 +65,17 @@ export const LoginForm: FC = () => {
             >
                 <Input.Password placeholder='Пароль' autoComplete='on' data-test-id='login-password' />
             </Form.Item>
-            <Form.Item>
+            <Form.Item className={styles.LoginExtra}>
                 <Form.Item name='remember' valuePropName='checked' noStyle>
-                    <Checkbox data-test-id='login-remember'>Запомнить меня</Checkbox>
+                    <Checkbox data-test-id='login-remember'>
+                        <Text>Запомнить меня</Text></Checkbox>
                 </Form.Item>
                 <Link onClick={reset} disabled={!isEmailValidated} data-test-id='login-forgot-button'>
-                    Забыли пароль?
+                    <Text>   Забыли пароль?</Text>
                 </Link>
             </Form.Item>
 
-            <Form.Item>
+            <Form.Item className={styles.LoginButton}>
                 <Button type='primary' htmlType='submit' block data-test-id='login-submit-button' size='large'>
                     Войти
                 </Button>
