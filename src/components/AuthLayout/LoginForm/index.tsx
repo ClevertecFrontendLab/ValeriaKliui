@@ -54,7 +54,7 @@ export const LoginForm: FC = () => {
                     },
                 ]}
             >
-                <Input addonBefore={emailPrefix} style={{ width: '100%' }} data-test-id='login-email' />
+                <Input addonBefore={emailPrefix} data-test-id='login-email' />
             </Form.Item>
             <Form.Item
                 name='password'
@@ -72,13 +72,13 @@ export const LoginForm: FC = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button type='primary' htmlType='submit' block data-test-id='login-submit-button'>
+                <Button type='primary' htmlType='submit' block data-test-id='login-submit-button' size='large'>
                     Войти
                 </Button>
             </Form.Item>
 
             <Form.Item>
-                <Button icon={<GooglePlusOutlined />} htmlType='submit' block>
+                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large'>
                     Войти через Google
                 </Button>
             </Form.Item>

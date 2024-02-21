@@ -38,7 +38,8 @@ export const Menu: FC = () => {
                     icon: <img src={ExitIcon} width={16} />,
                     label: 'Выход',
                     style: { position: 'absolute' },
-                    onClick: logOut
+                    onClick: logOut,
+                    className: styles.ItemBottomed,
                 },
             ]}
         />

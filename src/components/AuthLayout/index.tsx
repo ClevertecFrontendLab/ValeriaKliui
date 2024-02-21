@@ -4,6 +4,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '/img/logo.svg';
 import { AUTH_TABS } from '@constants/menu/menu';
 import { Tabs } from 'antd';
+import './index.css';
 
 export const AuthLayout: FC = () => {
     const { pathname } = useLocation();
@@ -21,8 +22,13 @@ export const AuthLayout: FC = () => {
                 <div className={styles.AuthContent}>
                     {!isAuthMessage && (
                         <>
-                            <img src={Logo} />
-                            <Tabs activeKey={activeKey} items={AUTH_TABS} onChange={changePaths} />
+                            <img src={Logo} className={styles.Logo} />
+                            <Tabs
+                                activeKey={activeKey}
+                                items={AUTH_TABS}
+                                onChange={changePaths}
+                                size='large'
+                            />
                         </>
                     )}
                     <Outlet />
