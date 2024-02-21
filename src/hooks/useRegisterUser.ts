@@ -15,7 +15,7 @@ export const useRegisterUser = () => {
 
     useEffect(() => {
         if (isError && error) {
-            if (error.data && error.data.statusCode === REGISTER_ERROR_USER_EXIST)
+            if (error.status === REGISTER_ERROR_USER_EXIST)
                 navigate(PATHS.REGISTER_ERROR_USER_EXIST);
             else navigate(PATHS.REGISTER_ERROR);
         }
@@ -24,9 +24,9 @@ export const useRegisterUser = () => {
     const register = async (data: UserData) => {
         try {
             const { email, password } = data ?? {};
+            dispatch(saveRegisteredUser(data));
             await registerUser({ email, password }).unwrap();
             navigate(PATHS.REGISTER_SUCCESS);
-            dispatch(saveRegisteredUser(data));
         } catch (errorCatched: unknown) {
             setError(errorCatched as ErrorType);
         }

@@ -1,4 +1,4 @@
-import { PATHS } from "@constants/navigation/paths";
+import { PATHS } from '@constants/navigation/paths';
 
 export interface AuthMessageProps {
     svg: string;
@@ -7,5 +7,6 @@ export interface AuthMessageProps {
     buttonText: string;
     messagePath?: PATHS | string;
     onClick?: () => void;
-    replacePath?: boolean
+    replacePath?: boolean;
+    dataTestId?: string;
 }

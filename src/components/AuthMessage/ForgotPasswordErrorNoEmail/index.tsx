@@ -1,10 +1,13 @@
 import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '/img/RegisterError.svg';
+import RegisterErrorIcon from '/img/Error.svg';
 import { FC } from 'react';
+import { PATHS } from '@constants/navigation/paths';
 
 export const ForgotPasswordErrorNoEmail: FC = () => <AuthMessage
     svg={RegisterErrorIcon}
-    title='Данные не сохранились'
-    text='Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.'
-    buttonText='Повторить'
+    title='Такой e-mail не зарегистрирован'
+    text='Мы не нашли в базе вашего e-mail. Попробуйте войти с другим e-mail.'
+    buttonText='Попробовать снова'
+    messagePath={PATHS.AUTH}
+    dataTestId='check-retry-button'
 />

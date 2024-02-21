@@ -8,4 +8,5 @@ export const LoginError = () => <AuthMessage
     text='Что-то пошло не так. Попробуйте еще раз'
     buttonText='Повторить'
     messagePath={PATHS.AUTH}
+    dataTestId='login-retry-button'
 />

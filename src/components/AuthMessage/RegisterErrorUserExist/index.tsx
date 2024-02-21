@@ -1,5 +1,5 @@
 import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '/img/RegisterError.svg';
+import RegisterErrorIcon from '/img/Error.svg';
 import { PATHS } from '@constants/navigation/paths';
 import { FC } from 'react';
 
@@ -10,4 +10,5 @@ export const RegisterErrorUserExist: FC = () => <AuthMessage
     buttonText='Назад к регистрации'
     messagePath={`${PATHS.AUTH}/${PATHS.REGISTER}`}
     replacePath={true}
+    dataTestId='registration-back-button'
 />

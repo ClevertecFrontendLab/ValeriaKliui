@@ -8,22 +8,23 @@ import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const ChangePasswordForm: FC = () => {
-    const [changePassword] = useChangePasswordMutation();
+    const [changePassword, { isSuccess, isError }] = useChangePasswordMutation();
     const [error, setError] = useState<ErrorType | null>(null);
     const navigate = useNavigate();
 
     const onFinish = (data: ChangePasswordData) => {
         try {
             changePassword(data);
+
         } catch (error) {
             setError(error as ErrorType);
         }
     };
 
     useEffect(() => {
-        if (error) navigate(PATHS.CHANGE_PASSWORD_ERROR);
-        else navigate(PATHS.CHANGE_PASSWORD_SUCCESS);
-    }, [navigate, error]);
+        if (isError) navigate(PATHS.CHANGE_PASSWORD_ERROR);
+        if (isSuccess) navigate(PATHS.CHANGE_PASSWORD_SUCCESS);
+    }, [navigate, isError, isSuccess]);
 
     return (
         <>
@@ -34,11 +35,11 @@ export const ChangePasswordForm: FC = () => {
                     rules={[validatePassword]}
                     help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
                 >
-                    <Input.Password placeholder='Пароль' />
+                    <Input.Password placeholder='Пароль' data-test-id='change-password' />
                 </Form.Item>
 
                 <Form.Item
-                    name='confirm'
+                    name='confirmPassword'
                     dependencies={['password']}
                     rules={[
                         {
@@ -55,11 +56,12 @@ export const ChangePasswordForm: FC = () => {
                         }),
                     ]}
                 >
-                    <Input.Password placeholder='Повторите пароль' />
+                    <Input.Password placeholder='Повторите пароль' data-test-id='change-confirm-password'
+                    />
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type='primary' htmlType='submit' block>
+                    <Button type='primary' htmlType='submit' block data-test-id='change-submit-button'>
                         Сохранить
                     </Button>
                 </Form.Item>

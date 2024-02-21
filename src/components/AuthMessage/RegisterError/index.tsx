@@ -1,5 +1,5 @@
 import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '/img/RegisterError.svg';
+import RegisterErrorIcon from '/img/Error.svg';
 import { FC } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { selectRegisteredUser } from '@redux/slices/authSlice';
@@ -17,5 +17,6 @@ export const RegisterError: FC = () => {
         text='Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.'
         buttonText='Повторить'
         onClick={repeatRegister}
+        dataTestId='registration-retry-button'
     />
 }

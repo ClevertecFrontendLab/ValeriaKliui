@@ -24,7 +24,7 @@ export const Loader: FC = () => {
 
     if (isSomeQueryPending)
         return (
-            <div className={styles.Loader}>
+            <div className={styles.Loader} data-test-id='loader'>
                 <Lottie options={defaultOptions} height={150} width={150} />
             </div>
         );

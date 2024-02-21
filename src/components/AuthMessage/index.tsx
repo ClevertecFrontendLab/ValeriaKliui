@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
 const { Title, Text } = Typography;
 
-export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText, messagePath, onClick, replacePath }) => {
+export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText, messagePath, onClick, replacePath, dataTestId }) => {
     const navigate = useNavigate();
     const onButtonClick = () => {
         if (messagePath) navigate(messagePath, { replace: replacePath })
@@ -22,7 +22,7 @@ export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText
             <img src={svg} />
             <Title level={3}>{title}</Title>
             <Text>{text}</Text>
-            <Button type='primary' block onClick={onButtonClick}>
+            <Button type='primary' block onClick={onButtonClick} data-test-id={dataTestId}>
                 {buttonText}
             </Button>
         </div>

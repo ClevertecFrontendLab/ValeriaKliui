@@ -6,19 +6,18 @@ import { UserData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
 
 export const RegisterForm: FC = () => {
+    const register = useRegisterUser();
+    const onRegisterFinish = (data: UserData) => register(data);
+
     const emailPrefix = (
         <Form.Item name='prefix' noStyle>
             <div>e-mail:</div>
         </Form.Item>
     );
 
-    const register = useRegisterUser();
-    const onRegisterFinish = (data: UserData) => register(data);
-
     return (
         <Form
             name='normal_register'
-            className='register-form'
             initialValues={{ remember: true }}
             onFinish={onRegisterFinish}
         >
@@ -32,7 +31,7 @@ export const RegisterForm: FC = () => {
                     },
                 ]}
             >
-                <Input addonBefore={emailPrefix} style={{ width: '100%' }} />
+                <Input addonBefore={emailPrefix} style={{ width: '100%' }} data-test-id='registration-email' />
             </Form.Item>
 
             <Form.Item
@@ -40,7 +39,7 @@ export const RegisterForm: FC = () => {
                 rules={[validatePassword]}
                 help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
             >
-                <Input.Password placeholder='Пароль' />
+                <Input.Password placeholder='Пароль' data-test-id='registration-password' />
             </Form.Item>
 
             <Form.Item
@@ -61,11 +60,11 @@ export const RegisterForm: FC = () => {
                     }),
                 ]}
             >
-                <Input.Password placeholder='Повторите пароль' />
+                <Input.Password placeholder='Повторите пароль' data-test-id='registration-confirm-password' />
             </Form.Item>
             <Form.Item>
-                <Button type='primary' htmlType='submit' block className='register-form-button'>
-                    Зарегистрироваться
+                <Button type='primary' htmlType='submit' block data-test-id='registration-submit-button'>
+                    Войти
                 </Button>
             </Form.Item>
 
