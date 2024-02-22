@@ -5,6 +5,7 @@ import { useRegisterUser } from '@hooks/useRegisterUser';
 import { UserData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
 import { Typography } from 'antd';
+import styles from './index.module.css';
 const { Text } = Typography
 
 export const RegisterForm: FC = () => {
@@ -63,7 +64,7 @@ export const RegisterForm: FC = () => {
                     }),
                 ]}
             >
-                <Input.Password placeholder='Повторите пароль' data-test-id='registration-confirm-password' />
+                <Input.Password placeholder='Повторите пароль' className={styles.ConfirmPassword} data-test-id='registration-confirm-password' />
             </Form.Item>
             <Form.Item>
                 <Button type='primary' htmlType='submit' block data-test-id='registration-submit-button' size='large'>
@@ -72,7 +73,7 @@ export const RegisterForm: FC = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large'>
+                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large' className={styles.ButtonNetwork}>
                     Регистрация через Google
                 </Button>
             </Form.Item>

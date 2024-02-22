@@ -1,0 +1,11 @@
+.ConfirmPassword {
+    margin-bottom: 32px;
+}
+.ButtonNetwork {
+    margin-bottom: 52px;
+}
+.ButtonNetwork svg {
+    @media (max-width: 480px) {
+        display: none;
+    }
+}

@@ -71,7 +71,7 @@ export const LoginForm: FC = () => {
                         <Text>Запомнить меня</Text></Checkbox>
                 </Form.Item>
                 <Link onClick={reset} disabled={!isEmailValidated} data-test-id='login-forgot-button'>
-                    <Text>   Забыли пароль?</Text>
+                    Забыли пароль?
                 </Link>
             </Form.Item>
 
@@ -82,7 +82,7 @@ export const LoginForm: FC = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large'>
+                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large' className={styles.ButtonNetwork}>
                     Войти через Google
                 </Button>
             </Form.Item>

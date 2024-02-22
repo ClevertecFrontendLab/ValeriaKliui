@@ -1,10 +1,24 @@
 .LoginExtra {
     margin-top: 50px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    @media (max-width: 480px) {
+        margin-top: 44px;
+    }
 }
 .LoginButton {
-    margin-bottom: 24px;
+    margin-bottom: 18px;
+    @media (max-width: 480px) {
+        margin-bottom: 14px;
+    }
 }
 .TextLink {
     color: inherit;
+}
+.ButtonNetwork {
+    margin-bottom: 142px;
+}
+.ButtonNetwork svg {
+    @media (max-width: 480px) {
+        display: none;
+    }
 }

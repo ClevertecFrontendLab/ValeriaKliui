@@ -1,9 +1,8 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Typography, Button } from 'antd';
 import { AuthMessageProps } from './interfaces';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { PATHS } from '@constants/navigation/paths';
-import { useWrongRedirect } from '@hooks/useWrongRedirect';
+import { useNavigate } from 'react-router-dom';
+import styles from './index.module.css';
 const { Title, Text } = Typography;
 
 export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText, messagePath, onClick, replacePath, dataTestId }) => {
@@ -12,17 +11,12 @@ export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText
         if (messagePath) navigate(messagePath, { replace: replacePath })
         else onClick && onClick()
     };
-    // const { key, pathname } = useLocation();
-
-    // useEffect(() => {
-    //     if (pathname.includes('result') && key === 'default') navigate(PATHS.AUTH);
-    // }, [key, navigate, pathname]);
 
     return (
-        <div>
-            <img src={svg} />
+        <div className={styles.Container}>
+            <img src={svg} className={styles.Icon} />
             <Title level={3}>{title}</Title>
-            <Text>{text}</Text>
+            <Text className={styles.Text}>{text}</Text>
             <Button type='primary' block onClick={onButtonClick} data-test-id={dataTestId}>
                 {buttonText}
             </Button>

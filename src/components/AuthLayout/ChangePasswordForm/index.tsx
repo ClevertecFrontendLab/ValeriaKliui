@@ -6,6 +6,7 @@ import { validatePassword } from '@utils/validatePassword';
 import { Button, Form, Input } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Title from 'antd/lib/typography/Title';
 
 export const ChangePasswordForm: FC = () => {
     const [changePassword, { isSuccess, isError }] = useChangePasswordMutation();
@@ -28,7 +29,7 @@ export const ChangePasswordForm: FC = () => {
 
     return (
         <>
-            Восстановление аккауанта
+            <Title level={3}> Восстановление аккауанта</Title>
             <Form name='change_password' onFinish={onFinish}>
                 <Form.Item
                     name='password'
