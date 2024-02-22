@@ -4,7 +4,7 @@ import { useRegisterMutation } from '@redux/services/authorize';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ErrorType, UserData } from './interfaces';
-import { saveRegisteredUser } from '@redux/slices/authSlice';
+import { saveUser } from '@redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 
 export const useRegisterUser = () => {
@@ -24,7 +24,7 @@ export const useRegisterUser = () => {
     const register = async (data: UserData) => {
         try {
             const { email, password } = data ?? {};
-            dispatch(saveRegisteredUser(data));
+            dispatch(saveUser(data));
             await registerUser({ email, password }).unwrap();
             navigate(PATHS.REGISTER_SUCCESS);
         } catch (errorCatched: unknown) {

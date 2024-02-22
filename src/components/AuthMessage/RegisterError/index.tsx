@@ -2,11 +2,11 @@ import { AuthMessage } from '@components/AuthMessage';
 import RegisterErrorIcon from '/img/Error.svg';
 import { FC } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { selectRegisteredUser } from '@redux/slices/authSlice';
+import { selectUser } from '@redux/slices/authSlice';
 import { useRegisterUser } from '@hooks/useRegisterUser';
 
 export const RegisterError: FC = () => {
-    const registeredUser = useAppSelector(selectRegisteredUser);
+    const registeredUser = useAppSelector(selectUser);
 
     const register = useRegisterUser();
     const repeatRegister = () => registeredUser && register(registeredUser);

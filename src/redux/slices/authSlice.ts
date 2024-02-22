@@ -12,13 +12,7 @@ const authSlice = createSlice({
     name: 'auth',
     initialState: initialState,
     reducers: {
-        saveRegisteredUser: (state, action: PayloadAction<UserData>) => {
-            state.user = action.payload;
-        },
-        saveLoginedUser: (state, action: PayloadAction<UserData>) => {
-            state.user = action.payload;
-        },
-        saveRestoringUser: (state, action: PayloadAction<UserData>) => {
+        saveUser: (state, action: PayloadAction<UserData>) => {
             state.user = action.payload;
         },
     },
@@ -33,10 +27,9 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { saveRegisteredUser, saveLoginedUser, saveRestoringUser } = authSlice.actions;
+export const { saveUser } = authSlice.actions;
 
-export const selectRegisteredUser = (state: RootState) => state.auth.user;
+export const selectUser = (state: RootState) => state.auth.user;
 export const selectEmail = (state: RootState) => state.auth.user?.email;
 export const selectPassword = (state: RootState) => state.auth.user?.password;
 export const selectConfirmedPassword = (state: RootState) => state.auth.user?.confirmPassword;
-

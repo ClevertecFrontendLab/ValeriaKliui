@@ -3,10 +3,17 @@ export interface UseLocalStorageReturns {
     setStoragedValue: (key: string) => void;
     removeFromStorage: () => void;
 }
+export interface UseSessionStorageReturns {
+    storagedValue: string;
+    setStoragedValue: (key: string) => void;
+    removeFromStorage: () => void;
+}
 
 export interface UserData {
     email: string;
     password: string;
+    remember: boolean;
+    confirmPassword: string;
 }
 
 export interface UseLoginUserReturns {

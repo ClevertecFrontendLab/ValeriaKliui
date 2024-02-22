@@ -3,6 +3,7 @@ import { Typography, Button } from 'antd';
 import { AuthMessageProps } from './interfaces';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
+import { useWrongRedirect } from '@hooks/useWrongRedirect';
 const { Title, Text } = Typography;
 
 export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText, messagePath, onClick, replacePath, dataTestId }) => {
@@ -11,11 +12,11 @@ export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText
         if (messagePath) navigate(messagePath, { replace: replacePath })
         else onClick && onClick()
     };
-    const { key, pathname } = useLocation();
+    // const { key, pathname } = useLocation();
 
-    useEffect(() => {
-        if (pathname.includes('result') && key === 'default') navigate(PATHS.AUTH);
-    }, [key, navigate, pathname]);
+    // useEffect(() => {
+    //     if (pathname.includes('result') && key === 'default') navigate(PATHS.AUTH);
+    // }, [key, navigate, pathname]);
 
     return (
         <div>

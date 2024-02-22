@@ -4,7 +4,7 @@ import { GooglePlusOutlined } from '@ant-design/icons';
 import { useLoginUser } from '@hooks/useLoginUser';
 import Link from 'antd/lib/typography/Link';
 import { useResetPassword } from '@hooks/useResetPassword';
-import { saveLoginedUser } from '@redux/slices/authSlice';
+import { saveUser } from '@redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 import { FormData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
@@ -36,7 +36,7 @@ export const LoginForm: FC = () => {
             onFinish={login}
             onValuesChange={(fieldsData) => {
                 setFormData(fieldsData);
-                dispatch(saveLoginedUser(fieldsData));
+                dispatch(saveUser(fieldsData));
             }}
             onFieldsChange={(fieldsData) => {
                 fieldsData.some(({ name, errors }) => {
