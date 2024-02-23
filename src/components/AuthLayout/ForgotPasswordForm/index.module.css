@@ -1,4 +1,4 @@
-@import '../../constants/styles/vars.css';
+@import '../../../constants/styles/vars.css';
 
 .Container {
     display: flex;
