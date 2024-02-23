@@ -6,7 +6,7 @@ import { UserData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
 import { Typography } from 'antd';
 import styles from './index.module.css';
-const { Text } = Typography
+const { Text } = Typography;
 
 export const RegisterForm: FC = () => {
     const register = useRegisterUser();
@@ -19,11 +19,7 @@ export const RegisterForm: FC = () => {
     );
 
     return (
-        <Form
-            name='normal_register'
-            initialValues={{ remember: true }}
-            onFinish={onRegisterFinish}
-        >
+        <Form name='normal_register' initialValues={{ remember: true }} onFinish={onRegisterFinish}>
             <Form.Item
                 name='email'
                 rules={[
@@ -34,7 +30,11 @@ export const RegisterForm: FC = () => {
                     },
                 ]}
             >
-                <Input addonBefore={emailPrefix} style={{ width: '100%' }} data-test-id='registration-email' />
+                <Input
+                    addonBefore={emailPrefix}
+                    style={{ width: '100%' }}
+                    data-test-id='registration-email'
+                />
             </Form.Item>
 
             <Form.Item
@@ -64,16 +64,32 @@ export const RegisterForm: FC = () => {
                     }),
                 ]}
             >
-                <Input.Password placeholder='Повторите пароль' className={styles.ConfirmPassword} data-test-id='registration-confirm-password' />
+                <Input.Password
+                    placeholder='Повторите пароль'
+                    className={styles.ConfirmPassword}
+                    data-test-id='registration-confirm-password'
+                />
             </Form.Item>
             <Form.Item>
-                <Button type='primary' htmlType='submit' block data-test-id='registration-submit-button' size='large'>
+                <Button
+                    type='primary'
+                    htmlType='submit'
+                    block
+                    data-test-id='registration-submit-button'
+                    size='large'
+                >
                     Войти
                 </Button>
             </Form.Item>
 
             <Form.Item>
-                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large' className={styles.ButtonNetwork}>
+                <Button
+                    icon={<GooglePlusOutlined />}
+                    htmlType='submit'
+                    block
+                    size='large'
+                    className={styles.ButtonNetwork}
+                >
                     Регистрация через Google
                 </Button>
             </Form.Item>

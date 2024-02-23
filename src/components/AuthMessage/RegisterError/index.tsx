@@ -11,12 +11,14 @@ export const RegisterError: FC = () => {
     const register = useRegisterUser();
     const repeatRegister = () => registeredUser && register(registeredUser);
 
-    return < AuthMessage
-        svg={RegisterErrorIcon}
-        title='Данные не сохранились'
-        text='Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.'
-        buttonText='Повторить'
-        onClick={repeatRegister}
-        dataTestId='registration-retry-button'
-    />
-}
+    return (
+        <AuthMessage
+            svg={RegisterErrorIcon}
+            title='Данные не сохранились'
+            text='Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.'
+            buttonText='Повторить'
+            onClick={repeatRegister}
+            dataTestId='registration-retry-button'
+        />
+    );
+};

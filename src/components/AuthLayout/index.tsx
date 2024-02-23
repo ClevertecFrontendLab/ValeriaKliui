@@ -11,9 +11,9 @@ import { PATHS } from '@constants/navigation/paths';
 export const AuthLayout: FC = () => {
     const { pathname } = useLocation();
     const isAuthMessage = pathname.includes('result');
-    const pathsToHideUpInfo = [PATHS.CHANGE_PASSWORD, PATHS.FORGOT_PASSWORD]
-    const isHiddenIpInfo = pathsToHideUpInfo.some(path => pathname.includes(path))
-    console.log(isHiddenIpInfo)
+    const pathsToHideUpInfo = [PATHS.CHANGE_PASSWORD, PATHS.FORGOT_PASSWORD];
+    const isHiddenIpInfo = pathsToHideUpInfo.some((path) => pathname.includes(path));
+
     const navigate = useNavigate();
     const changePaths = (activeKey: string) => {
         navigate(AUTH_TABS[Number(activeKey) - 1].path);

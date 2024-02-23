@@ -8,9 +8,9 @@ import { saveUser } from '@redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 import { FormData } from '@hooks/interfaces';
 import { validatePassword } from '@utils/validatePassword';
-import styles from './index.module.css'
+import styles from './index.module.css';
 import { Typography } from 'antd';
-const { Text } = Typography
+const { Text } = Typography;
 
 export const LoginForm: FC = () => {
     const [formData, setFormData] = useState<FormData | null>(null);
@@ -61,28 +61,52 @@ export const LoginForm: FC = () => {
             </Form.Item>
             <Form.Item
                 name='password'
-                rules={[{ required: true, message: 'Пожалуйста, введите пароль.' }, validatePassword]}
+                rules={[
+                    { required: true, message: 'Пожалуйста, введите пароль.' },
+                    validatePassword,
+                ]}
             >
-                <Input.Password placeholder='Пароль' autoComplete='on' data-test-id='login-password' />
+                <Input.Password
+                    placeholder='Пароль'
+                    autoComplete='on'
+                    data-test-id='login-password'
+                />
             </Form.Item>
             <Form.Item className={styles.LoginExtra}>
                 <Form.Item name='remember' valuePropName='checked' noStyle>
                     <Checkbox data-test-id='login-remember'>
-                        <Text>Запомнить меня</Text></Checkbox>
+                        <Text>Запомнить меня</Text>
+                    </Checkbox>
                 </Form.Item>
-                <Link onClick={reset} disabled={!isEmailValidated} data-test-id='login-forgot-button'>
+                <Link
+                    onClick={reset}
+                    disabled={!isEmailValidated}
+                    data-test-id='login-forgot-button'
+                >
                     Забыли пароль?
                 </Link>
             </Form.Item>
 
             <Form.Item className={styles.LoginButton}>
-                <Button type='primary' htmlType='submit' block data-test-id='login-submit-button' size='large'>
+                <Button
+                    type='primary'
+                    htmlType='submit'
+                    block
+                    data-test-id='login-submit-button'
+                    size='large'
+                >
                     Войти
                 </Button>
             </Form.Item>
 
             <Form.Item>
-                <Button icon={<GooglePlusOutlined />} htmlType='submit' block size='large' className={styles.ButtonNetwork}>
+                <Button
+                    icon={<GooglePlusOutlined />}
+                    htmlType='submit'
+                    block
+                    size='large'
+                    className={styles.ButtonNetwork}
+                >
                     Войти через Google
                 </Button>
             </Form.Item>

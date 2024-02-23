@@ -16,7 +16,6 @@ export const ChangePasswordForm: FC = () => {
     const onFinish = (data: ChangePasswordData) => {
         try {
             changePassword(data);
-
         } catch (error) {
             setError(error as ErrorType);
         }
@@ -57,12 +56,19 @@ export const ChangePasswordForm: FC = () => {
                         }),
                     ]}
                 >
-                    <Input.Password placeholder='Повторите пароль' data-test-id='change-confirm-password'
+                    <Input.Password
+                        placeholder='Повторите пароль'
+                        data-test-id='change-confirm-password'
                     />
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type='primary' htmlType='submit' block data-test-id='change-submit-button'>
+                    <Button
+                        type='primary'
+                        htmlType='submit'
+                        block
+                        data-test-id='change-submit-button'
+                    >
                         Сохранить
                     </Button>
                 </Form.Item>

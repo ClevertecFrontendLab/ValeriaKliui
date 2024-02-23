@@ -12,7 +12,7 @@ export const useLoginUser = (): UseLoginUserReturns => {
     const navigate = useNavigate();
     const { accessToken } = data ?? {};
     const [error, setError] = useState<ErrorType | null>(null);
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
 
     const { storagedValue, setStoragedValue, removeFromStorage } = useLocalStorage('accessToken');
 
@@ -20,24 +20,24 @@ export const useLoginUser = (): UseLoginUserReturns => {
 
     useEffect(() => {
         if (accessToken) {
-            setStoragedValue(accessToken)
+            setStoragedValue(accessToken);
         }
-        if (storagedValue) navigate(PATHS.MAIN)
+        if (storagedValue) navigate(PATHS.MAIN);
         if (isError) navigate(PATHS.LOGIN_ERROR);
     }, [accessToken, navigate, setStoragedValue, storagedValue, isError]);
 
     useEffect(() => {
         window.addEventListener('beforeunload', () => {
             if (loginedUser && loginedUser.remember === false) {
-                removeFromStorage()
+                removeFromStorage();
             }
-        })
-    },)
+        });
+    });
 
     const login = async (userData: UserData) => {
         try {
-            const { email, password } = userData
-            dispatch(saveUser(userData))
+            const { email, password } = userData;
+            dispatch(saveUser(userData));
             await loginUser({ email, password }).unwrap();
         } catch (error) {
             setError(error as ErrorType);

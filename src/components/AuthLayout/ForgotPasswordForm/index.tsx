@@ -10,12 +10,14 @@ import VerificationInput from 'react-verification-input';
 import ErrorIcon from '/img/Error.svg';
 import InfoIcon from '/img/Info.svg';
 import styles from './index.module.css';
+import { Typography } from 'antd';
+const { Text } = Typography;
 
 export const ForgotPasswordForm: FC = () => {
     const userEmail = useAppSelector(selectEmail) ?? '';
     const [sendCode, { isSuccess }] = useConfirmEmailMutation();
     const [error, setError] = useState<ErrorType | null>(null);
-    const [codeValue, setCodeValue] = useState<string | null>(null);
+    const [codeValue, setCodeValue] = useState<string>('');
     const navigate = useNavigate();
 
     const onChange = (code: string) => {
@@ -40,20 +42,25 @@ export const ForgotPasswordForm: FC = () => {
             <img src={error ? ErrorIcon : InfoIcon} className={styles.Logo} />
             <Title level={3}>
                 {error && 'Неверный код. '}
-                Введите код для восстановления аккауанта</Title>
-            <p>Мы отправили вам на e-mail <b>{userEmail}</b> шестизначный код. Введите его в поле ниже.</p>
+                Введите код для восстановления аккауанта
+            </Title>
+            <Text className={styles.Text}>
+                Мы отправили вам на e-mail <b>{userEmail}</b> шестизначный код. Введите его в поле
+                ниже.
+            </Text>
             <VerificationInput
                 value={codeValue}
                 onComplete={onCodeComplete}
                 onChange={onChange}
                 inputProps={{ 'data-test-id': 'verification-input' }}
                 classNames={{
-                    character: ["character", error ? 'character--error' : ''].join(' '),
-                    characterInactive: "character--inactive",
-                    characterSelected: "character--selected",
+                    character: ['character', error ? 'character--error' : ''].join(' '),
+                    characterInactive: 'character--inactive',
+                    characterSelected: 'character--selected',
+                    characterFilled: 'character--filled',
                 }}
             />
-            <p>Не пришло письмо? Проверьте папку Спам.</p>
+            <Text className={styles.Text}>Не пришло письмо? Проверьте папку Спам.</Text>
         </div>
     );
 };

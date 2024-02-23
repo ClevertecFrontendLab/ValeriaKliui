@@ -10,7 +10,6 @@ export const useLocalStorage = (key: string): UseLocalStorageReturns => {
         if (storagedValue != null) {
             localStorage.setItem(key, JSON.stringify(storagedValue));
         }
-
     }, [key, storagedValue]);
 
     const removeFromStorage = () => localStorage.removeItem(key);

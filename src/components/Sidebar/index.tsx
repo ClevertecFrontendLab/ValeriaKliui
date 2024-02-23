@@ -7,7 +7,7 @@ import logoCollapsed from '/img/logo_collapsed.svg';
 import { SidebarProps } from './interfaces';
 import { Grid } from 'antd';
 import { SidebarClose } from '@components/SidebarClose';
-import './index.css'
+import './index.css';
 
 const { useBreakpoint } = Grid;
 
@@ -26,7 +26,12 @@ export const Sidebar: FC<SidebarProps> = ({ collapsed, toggleSidebar }) => {
                 collapsed={collapsed}
                 collapsible
             >
-                <div className={styles.LogoContainer}>
+                <div
+                    className={[
+                        styles.LogoContainer,
+                        collapsed ? styles.LogoContainerCollapsed : '',
+                    ].join(' ')}
+                >
                     <img
                         src={collapsed ? logoCollapsed : logo}
                         alt='CleverFit'

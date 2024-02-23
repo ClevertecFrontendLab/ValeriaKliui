@@ -2,6 +2,7 @@
     height: 40px;
     max-height: 40px;
 }
+
 .ant-form-item input::placeholder,
 .character {
     font-family: 'Inter Regular';
@@ -24,28 +25,42 @@
     display: flex;
     justify-content: space-between;
 }
+
 .ant-btn {
     font-family: 'Inter Regular';
     font-size: 16px;
 }
+
 .ant-tabs-nav-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
+
 .ant-tabs-tab {
     width: 50%;
     justify-content: center;
 }
+
 .ant-form-item-explain {
     font-size: 12px;
 }
-.character--inactive,
-.character--selected {
+
+.character {
+    color: transparent;
+}
+
+.character--inactive {
     background-color: transparent;
     color: transparent;
 }
+
+.character--filled {
+    background-color: transparent;
+    color: black;
+}
+
 .character--error {
     border: 1px solid red;
 }

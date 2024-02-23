@@ -14,7 +14,7 @@ export const useResetPassword = () => {
         if (formData) {
             const { email } = formData;
             try {
-                email && await reset({ email }).unwrap();
+                email && (await reset({ email }).unwrap());
             } catch (error) {
                 setError(error as ErrorType);
             }
@@ -22,7 +22,11 @@ export const useResetPassword = () => {
     };
     useEffect(() => {
         if (isError && error) {
-            if (error.status === RESET_PASSWORD_ERROR_NO_EMAIL && error.data.message === 'Email не найден') navigate(PATHS.FORGOT_PASSWORD_ERROR_NO_EMAIL);
+            if (
+                error.status === RESET_PASSWORD_ERROR_NO_EMAIL &&
+                error.data.message === 'Email не найден'
+            )
+                navigate(PATHS.FORGOT_PASSWORD_ERROR_NO_EMAIL);
             else navigate(PATHS.FORGOT_PASSWORD_ERROR);
         }
         if (isSuccess) navigate(`${PATHS.AUTH}/${PATHS.FORGOT_PASSWORD}`, { replace: true });

@@ -6,12 +6,12 @@
     position: absolute;
 
     @media (max-width: 834px) {
-        top: 55%;
+        top: 47%;
     }
 
     @media (max-width: 480px) {
         position: fixed;
-        top: 2%;
+        top: 3.5%;
         z-index: 2000;
         left: 105px;
     }

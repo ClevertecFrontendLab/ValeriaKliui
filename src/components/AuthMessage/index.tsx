@@ -5,11 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import styles from './index.module.css';
 const { Title, Text } = Typography;
 
-export const AuthMessage: FC<AuthMessageProps> = ({ svg, title, text, buttonText, messagePath, onClick, replacePath, dataTestId }) => {
+export const AuthMessage: FC<AuthMessageProps> = ({
+    svg,
+    title,
+    text,
+    buttonText,
+    messagePath,
+    onClick,
+    replacePath,
+    dataTestId,
+}) => {
     const navigate = useNavigate();
     const onButtonClick = () => {
-        if (messagePath) navigate(messagePath, { replace: replacePath })
-        else onClick && onClick()
+        if (messagePath) navigate(messagePath, { replace: replacePath });
+        else onClick && onClick();
     };
 
     return (
