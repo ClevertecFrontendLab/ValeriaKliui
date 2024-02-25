@@ -20,7 +20,11 @@
 }
 
 .ButtonNetwork {
-    margin-bottom: 142px;
+    margin-bottom: 84px;
+
+    @media (max-width: 480px) {
+        margin-bottom: 55px;
+    }
 }
 
 .ButtonNetwork svg {

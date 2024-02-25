@@ -1,9 +1,11 @@
-import { FC } from 'react';
-import { Menu as MenuA } from 'antd';
-import styles from './index.module.css';
-import { HeartFilled, TrophyFilled, IdcardOutlined, CalendarTwoTone } from '@ant-design/icons';
-import ExitIcon from '/img/Exit.svg';
+import { CalendarTwoTone,HeartFilled, IdcardOutlined, TrophyFilled } from '@ant-design/icons';
 import { useLoginUser } from '@hooks/useLoginUser';
+import { Menu as MenuA } from 'antd';
+import { FC } from 'react';
+
+import ExitIcon from '/img/Exit.svg';
+
+import styles from './index.module.css';
 
 
 export const Menu: FC = () => {

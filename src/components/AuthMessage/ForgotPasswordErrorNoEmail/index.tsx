@@ -1,15 +1,25 @@
-import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '/img/Error.svg';
-import { FC } from 'react';
 import { PATHS } from '@constants/navigation/paths';
+import { Button, Result } from 'antd';
+import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const ForgotPasswordErrorNoEmail: FC = () => (
-    <AuthMessage
-        svg={RegisterErrorIcon}
+export const ForgotPasswordErrorNoEmail: FC = () => {
+    const navigate = useNavigate();
+    const onButtonClick = () => navigate(PATHS.AUTH);
+    return <Result
+        status='error'
         title='Такой e-mail не зарегистрирован'
-        text='Мы не нашли в базе вашего e-mail. Попробуйте войти с другим e-mail.'
-        buttonText='Попробовать снова'
-        messagePath={PATHS.AUTH}
-        dataTestId='check-retry-button'
+        subTitle='Мы не нашли в базе вашего e-mail. Попробуйте войти с другим e-mail.'
+        extra={
+            <Button
+                type='primary'
+                block
+                size='large'
+                onClick={onButtonClick}
+                data-test-id='check-retry-button'
+            >
+                Попробовать снова
+            </Button>
+        }
     />
-);
+}

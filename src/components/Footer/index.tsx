@@ -1,11 +1,13 @@
-import { FC } from 'react';
-import { Layout, Card } from 'antd';
-import styles from './index.module.css';
 import { APPS_AVAILABLE } from '@constants/cards/cards';
+import { Card,Layout } from 'antd';
+import { FC } from 'react';
+
+import styles from './index.module.css';
 const { Footer: FooterA } = Layout;
+import './index.css';
+
 import { Typography } from 'antd';
 import Link from 'antd/lib/typography/Link';
-import './index.css';
 
 const { Text } = Typography;
 

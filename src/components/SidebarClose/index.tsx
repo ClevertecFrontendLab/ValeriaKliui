@@ -1,8 +1,9 @@
-import { Grid } from 'antd';
-import styles from './index.module.css';
 import { MenuFoldOutlined } from '@ant-design/icons';
-import { SidebarCloseProps } from './interfaces';
+import { Grid } from 'antd';
 import { FC } from 'react';
+
+import styles from './index.module.css';
+import { SidebarCloseProps } from './interfaces';
 
 const { useBreakpoint } = Grid;
 

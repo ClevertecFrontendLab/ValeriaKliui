@@ -1,9 +1,11 @@
-import { FC } from 'react';
-import { Card, Row, Col } from 'antd';
-import styles from './index.module.css';
-import { Typography, Space } from 'antd';
-import { CARDS_INFO } from '@constants/cards/cards';
 import './index.css';
+
+import { CARDS_INFO } from '@constants/cards/cards';
+import { Card, Col,Row } from 'antd';
+import { Space,Typography } from 'antd';
+import { FC } from 'react';
+
+import styles from './index.module.css';
 
 const { Title, Text } = Typography;
 

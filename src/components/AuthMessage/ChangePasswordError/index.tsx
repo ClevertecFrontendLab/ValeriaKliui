@@ -1,12 +1,11 @@
-import { AuthMessage } from '@components/AuthMessage';
-import ErrorIcon from '/img/Error.svg';
-import { FC, useEffect, useState } from 'react';
-import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { selectConfirmedPassword, selectPassword } from '@redux/slices/authSlice';
-import { useChangePasswordMutation } from '@redux/services/authorize';
-import { ErrorType } from '@hooks/interfaces';
-import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
+import { useAppSelector } from '@hooks/index';
+import { ErrorType } from '@hooks/interfaces';
+import { useChangePasswordMutation } from '@redux/services/authorize';
+import { selectConfirmedPassword, selectPassword } from '@redux/slices/authSlice';
+import { Button, Result } from 'antd';
+import { FC, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const ChangePasswordError: FC = () => {
     const password = useAppSelector(selectPassword) ?? '';
@@ -24,17 +23,24 @@ export const ChangePasswordError: FC = () => {
     };
 
     useEffect(() => {
-        if (isSuccess) navigate(`${PATHS.AUTH}/${PATHS.CHANGE_PASSWORD_SUCCESS}`);
+        if (isSuccess) navigate(PATHS.CHANGE_PASSWORD_SUCCESS);
     }, [isSuccess, navigate]);
 
     return (
-        <AuthMessage
-            svg={ErrorIcon}
+        <Result
+            status='error'
             title='Данные не сохранились'
-            text='Произошла ошибка, попробуйте отправить форму ещё раз.'
-            buttonText='Повторить'
-            dataTestId='change-retry-button'
-            onClick={onButtonClick}
-        />
-    );
+            subTitle='Произошла ошибка, попробуйте отправить форму ещё раз.'
+            extra={
+                <Button
+                    type='primary'
+                    block
+                    onClick={onButtonClick}
+                    data-test-id='change-retry-button'
+                    size='large'
+                >
+                    Повторить
+                </Button>
+            }
+        />)
 };

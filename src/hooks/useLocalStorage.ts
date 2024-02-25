@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { UseLocalStorageReturns } from './interfaces';
 
 export const useLocalStorage = (key: string): UseLocalStorageReturns => {

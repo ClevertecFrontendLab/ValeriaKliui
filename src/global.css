@@ -45,11 +45,18 @@ h2.ant-typography {
     font-size: 32px;
 }
 
-h3.ant-typography {
+h3.ant-typography,
+.ant-result-title {
     font-family: 'Inter Medium';
+    line-height: 130%;
     font-size: 24px;
 }
-
+.ant-result-title {
+    white-space: pre;
+    @media (max-width: 480px) {
+        white-space: pre-line;
+    }
+}
 h4.ant-typography {
     font-family: 'Inter Medium';
     font-size: 20px;
@@ -94,9 +101,13 @@ a.ant-typography {
 }
 
 span.ant-typography,
-span.ant-menu-title-content {
+span.ant-menu-title-content,
+.ant-result-subtitle {
     font-family: 'Inter Regular';
     font-size: 14px;
+}
+.ant-result-subtitle {
+    line-height: 130%;
 }
 
 .bold {

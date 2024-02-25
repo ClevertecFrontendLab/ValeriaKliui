@@ -1,7 +1,8 @@
+import animationData from '@constants/styles/loader.json';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { FC } from 'react';
 import Lottie from 'react-lottie';
-import animationData from '@constants/styles/loader.json';
+
 import styles from './index.module.css';
 
 export const Loader: FC = () => {

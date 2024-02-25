@@ -1,11 +1,12 @@
 import { REGISTER_ERROR_USER_EXIST } from '@constants/index';
 import { PATHS } from '@constants/navigation/paths';
 import { useRegisterMutation } from '@redux/services/authorize';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ErrorType, UserData } from './interfaces';
 import { saveUser } from '@redux/slices/authSlice';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import { ErrorType, UserData } from './interfaces';
 
 export const useRegisterUser = () => {
     const [registerUser, { isError }] = useRegisterMutation();

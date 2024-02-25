@@ -1,11 +1,12 @@
+import { PATHS } from '@constants/navigation/paths';
 import { useLoginUserMutation } from '@redux/services/authorize';
-import { useLocalStorage } from './useLocalStorage';
+import { saveUser, selectUser } from '@redux/slices/authSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PATHS } from '@constants/navigation/paths';
+
 import { ErrorType, UseLoginUserReturns, UserData } from './interfaces';
-import { saveUser, selectUser } from '@redux/slices/authSlice';
 import { useAppDispatch, useAppSelector } from './typed-react-redux-hooks';
+import { useLocalStorage } from './useLocalStorage';
 
 export const useLoginUser = (): UseLoginUserReturns => {
     const [loginUser, { data, isError }] = useLoginUserMutation();

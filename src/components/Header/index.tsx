@@ -1,7 +1,8 @@
-import { FC } from 'react';
-import { Layout, Typography } from 'antd';
-import styles from './index.module.css';
 import { SettingOutlined } from '@ant-design/icons';
+import { Layout, Typography } from 'antd';
+import { FC } from 'react';
+
+import styles from './index.module.css';
 
 const { Title, Text } = Typography;
 

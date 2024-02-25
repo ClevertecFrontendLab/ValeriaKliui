@@ -2,6 +2,7 @@ import { BASE_URL } from '@constants/index';
 import { UserData } from '@hooks/interfaces';
 import { RootState } from '@redux/configure-store';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { ChangePasswordData, ConfirmEmailData } from './interfaces';
 
 export const authorizeApi = createApi({

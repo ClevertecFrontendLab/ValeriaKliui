@@ -1,15 +1,16 @@
-import { FC, MouseEvent, useState } from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
 import { GooglePlusOutlined } from '@ant-design/icons';
+import { FormData } from '@hooks/interfaces';
 import { useLoginUser } from '@hooks/useLoginUser';
-import Link from 'antd/lib/typography/Link';
 import { useResetPassword } from '@hooks/useResetPassword';
 import { saveUser } from '@redux/slices/authSlice';
-import { useDispatch } from 'react-redux';
-import { FormData } from '@hooks/interfaces';
-import { validatePassword } from '@utils/validatePassword';
-import styles from './index.module.css';
+import { validateEmail, validatePassword } from '@utils/validationRules';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { Typography } from 'antd';
+import Link from 'antd/lib/typography/Link';
+import { FC, MouseEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import styles from './index.module.css';
 const { Text } = Typography;
 
 export const LoginForm: FC = () => {
@@ -49,22 +50,13 @@ export const LoginForm: FC = () => {
         >
             <Form.Item
                 name='email'
-                rules={[
-                    {
-                        required: true,
-                        message: 'Пожалуйста, введите корректный email.',
-                        type: 'email',
-                    },
-                ]}
+                rules={validateEmail()}
             >
                 <Input addonBefore={emailPrefix} data-test-id='login-email' />
             </Form.Item>
             <Form.Item
                 name='password'
-                rules={[
-                    { required: true, message: 'Пожалуйста, введите пароль.' },
-                    validatePassword,
-                ]}
+                rules={validatePassword()}
             >
                 <Input.Password
                     placeholder='Пароль'

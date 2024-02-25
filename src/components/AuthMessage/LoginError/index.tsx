@@ -1,14 +1,29 @@
-import { AuthMessage } from '@components/AuthMessage';
-import LoginErrorIcon from '/img/LoginError.svg';
 import { PATHS } from '@constants/navigation/paths';
+import { Button, Result } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-export const LoginError = () => (
-    <AuthMessage
-        svg={LoginErrorIcon}
-        title='Вход не выполнен'
-        text='Что-то пошло не так. Попробуйте еще раз'
-        buttonText='Повторить'
-        messagePath={PATHS.AUTH}
-        dataTestId='login-retry-button'
-    />
-);
+export const LoginError = () => {
+    const navigate = useNavigate();
+    const onButtonClick = () => {
+        navigate(PATHS.AUTH);
+    };
+
+    return (
+        <Result
+            status='warning'
+            title='Вход не выполнен.'
+            subTitle='Что-то пошло не так. Попробуйте еще раз'
+            extra={
+                <Button
+                    type='primary'
+                    block
+                    onClick={onButtonClick}
+                    size='large'
+                    data-test-id='login-retry-button'
+                >
+                    Повторить
+                </Button>
+            }
+        />
+    );
+};

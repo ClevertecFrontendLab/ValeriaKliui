@@ -1,8 +1,9 @@
+import { UserData } from '@hooks/interfaces';
 import { RootState } from '@redux/configure-store';
 import { authorizeApi } from '@redux/services/authorize';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice,PayloadAction } from '@reduxjs/toolkit';
+
 import { AuthState } from './interfaces';
-import { UserData } from '@hooks/interfaces';
 
 const initialState: AuthState = {
     user: null,

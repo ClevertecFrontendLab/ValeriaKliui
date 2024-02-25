@@ -1,9 +1,9 @@
-import { AuthMessage } from '@components/AuthMessage';
-import ErrorIcon from '/img/ErrorPerson.svg';
-import { FC } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { selectEmail } from '@redux/slices/authSlice';
 import { useResetPassword } from '@hooks/useResetPassword';
+import { selectEmail } from '@redux/slices/authSlice';
+import { Button, Result } from 'antd';
+import { FC } from 'react';
+import styles from './index.module.css';
 
 export const ForgotPasswordError: FC = () => {
     const userEmail = useAppSelector(selectEmail) ?? '';
@@ -14,13 +14,20 @@ export const ForgotPasswordError: FC = () => {
     };
 
     return (
-        <AuthMessage
-            svg={ErrorIcon}
+        <Result
+            status='500'
             title='Что-то пошло не так'
-            text='Произошла ошибка, попробуйте отправить форму ещё раз.'
-            buttonText='Назад'
-            dataTestId='check-back-button'
-            onClick={onButtonClick}
-        />
-    );
+            subTitle='Произошла ошибка, попробуйте отправить форму ещё раз.'
+            className={styles.Result}
+            extra={
+                <Button
+                    type='primary'
+                    size='large'
+                    onClick={onButtonClick}
+                    data-test-id='check-back-button'
+                >
+                    Назад
+                </Button>
+            }
+        />)
 };

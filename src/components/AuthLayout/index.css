@@ -47,8 +47,24 @@
     font-size: 12px;
 }
 
+.ant-result {
+    padding: 0;
+}
+.ant-result-icon {
+    margin-bottom: 28px;
+    @media (max-width: 480px) {
+        margin-bottom: 28px;
+    }
+}
+.container {
+    margin-bottom: 15px;
+    gap: 12px;
+}
 .character {
     color: transparent;
+    border: 1px solid gray;
+    width: 40px;
+    height: 40px;
 }
 
 .character--inactive {
@@ -59,6 +75,7 @@
 .character--filled {
     background-color: transparent;
     color: black;
+    line-height: 40px;
 }
 
 .character--error {

@@ -1,12 +1,15 @@
-import { FC } from 'react';
-import styles from './index.module.css';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import Logo from '/img/logo.svg';
-import { AUTH_TABS } from '@constants/menu/menu';
-import { Tabs } from 'antd';
 import './index.css';
-import { useWrongRedirect } from '@hooks/useWrongRedirect';
+
+import { AUTH_TABS } from '@constants/menu/menu';
 import { PATHS } from '@constants/navigation/paths';
+import { useWrongRedirect } from '@hooks/useWrongRedirect';
+import { Tabs } from 'antd';
+import { FC } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+
+import Logo from '/img/logo.svg';
+
+import styles from './index.module.css';
 
 export const AuthLayout: FC = () => {
     const { pathname } = useLocation();

@@ -2,11 +2,12 @@ import { PATHS } from '@constants/navigation/paths';
 import { ErrorType } from '@hooks/interfaces';
 import { useChangePasswordMutation } from '@redux/services/authorize';
 import { ChangePasswordData } from '@redux/services/interfaces';
-import { validatePassword } from '@utils/validatePassword';
+import { validateConfirmationPassword, validatePassword } from '@utils/validationRules';
 import { Button, Form, Input } from 'antd';
+import Title from 'antd/lib/typography/Title';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Title from 'antd/lib/typography/Title';
+import styles from './index.module.css';
 
 export const ChangePasswordForm: FC = () => {
     const [changePassword, { isSuccess, isError }] = useChangePasswordMutation();
@@ -27,34 +28,25 @@ export const ChangePasswordForm: FC = () => {
     }, [navigate, isError, isSuccess]);
 
     return (
-        <>
-            <Title level={3}> Восстановление аккауанта</Title>
+        <div>
+            <Title level={3} className={styles.Title}>
+                Восстановление аккауанта
+            </Title>
             <Form name='change_password' onFinish={onFinish}>
                 <Form.Item
                     name='password'
-                    rules={[validatePassword]}
+                    rules={validatePassword()}
                     help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
+                    className={styles.Password}
                 >
-                    <Input.Password placeholder='Пароль' data-test-id='change-password' />
+                    <Input.Password placeholder='Новый пароль' data-test-id='change-password' />
                 </Form.Item>
 
                 <Form.Item
                     name='confirmPassword'
                     dependencies={['password']}
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Пожалуйста, подтвердите пароль',
-                        },
-                        ({ getFieldValue }) => ({
-                            validator(_, value) {
-                                if (!value || getFieldValue('password') === value) {
-                                    return Promise.resolve();
-                                }
-                                return Promise.reject(new Error('Пароли не совпадают'));
-                            },
-                        }),
-                    ]}
+                    rules={validateConfirmationPassword()}
+                    className={styles.ConfirmPassword}
                 >
                     <Input.Password
                         placeholder='Повторите пароль'
@@ -68,11 +60,13 @@ export const ChangePasswordForm: FC = () => {
                         htmlType='submit'
                         block
                         data-test-id='change-submit-button'
+                        size='large'
+                        className={styles.Button}
                     >
                         Сохранить
                     </Button>
                 </Form.Item>
             </Form>
-        </>
+        </div>
     );
 };

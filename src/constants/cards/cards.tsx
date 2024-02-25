@@ -1,9 +1,9 @@
 import {
-    HeartFilled,
-    IdcardOutlined,
-    CalendarOutlined,
     AndroidFilled,
     AppleFilled,
+    CalendarOutlined,
+    HeartFilled,
+    IdcardOutlined,
 } from '@ant-design/icons';
 
 export const CARDS_INFO = [

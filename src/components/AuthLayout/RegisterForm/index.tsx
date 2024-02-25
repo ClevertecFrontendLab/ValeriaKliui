@@ -1,10 +1,11 @@
-import { Button, Form, Input } from 'antd';
-import { FC } from 'react';
 import { GooglePlusOutlined } from '@ant-design/icons';
-import { useRegisterUser } from '@hooks/useRegisterUser';
 import { UserData } from '@hooks/interfaces';
-import { validatePassword } from '@utils/validatePassword';
+import { useRegisterUser } from '@hooks/useRegisterUser';
+import { validateConfirmationPassword, validateEmail, validatePassword } from '@utils/validationRules';
+import { Button, Form, Input } from 'antd';
 import { Typography } from 'antd';
+import { FC } from 'react';
+
 import styles from './index.module.css';
 const { Text } = Typography;
 
@@ -19,16 +20,10 @@ export const RegisterForm: FC = () => {
     );
 
     return (
-        <Form name='normal_register' initialValues={{ remember: true }} onFinish={onRegisterFinish}>
+        <Form name='normal_register' className={styles.Container} initialValues={{ remember: true }} onFinish={onRegisterFinish}>
             <Form.Item
                 name='email'
-                rules={[
-                    {
-                        required: true,
-                        message: 'Пожалуйста, введите корректный email.',
-                        type: 'email',
-                    },
-                ]}
+                rules={validateEmail()}
             >
                 <Input
                     addonBefore={emailPrefix}
@@ -39,9 +34,9 @@ export const RegisterForm: FC = () => {
 
             <Form.Item
                 name='password'
-                rules={[validatePassword]}
+                rules={validatePassword()}
                 help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
-                className='str'
+                className={['str', styles.Password].join(' ')}
             >
                 <Input.Password placeholder='Пароль' data-test-id='registration-password' />
             </Form.Item>
@@ -49,28 +44,15 @@ export const RegisterForm: FC = () => {
             <Form.Item
                 name='confirm'
                 dependencies={['password']}
-                rules={[
-                    {
-                        required: true,
-                        message: 'Пожалуйста, подтвердите пароль',
-                    },
-                    ({ getFieldValue }) => ({
-                        validator(_, value) {
-                            if (!value || getFieldValue('password') === value) {
-                                return Promise.resolve();
-                            }
-                            return Promise.reject(new Error('Пароли не совпадают'));
-                        },
-                    }),
-                ]}
+                rules={validateConfirmationPassword()}
+                className={styles.ConfirmPassword}
             >
                 <Input.Password
                     placeholder='Повторите пароль'
-                    className={styles.ConfirmPassword}
                     data-test-id='registration-confirm-password'
                 />
             </Form.Item>
-            <Form.Item>
+            <Form.Item className={styles.Button}>
                 <Button
                     type='primary'
                     htmlType='submit'

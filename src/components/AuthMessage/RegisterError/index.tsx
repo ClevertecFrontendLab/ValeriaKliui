@@ -1,24 +1,33 @@
-import { AuthMessage } from '@components/AuthMessage';
-import RegisterErrorIcon from '/img/Error.svg';
-import { FC } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { selectUser } from '@redux/slices/authSlice';
 import { useRegisterUser } from '@hooks/useRegisterUser';
+import { selectUser } from '@redux/slices/authSlice';
+import { Button, Result } from 'antd';
+import { FC } from 'react';
+
 
 export const RegisterError: FC = () => {
     const registeredUser = useAppSelector(selectUser);
 
     const register = useRegisterUser();
-    const repeatRegister = () => registeredUser && register(registeredUser);
+    const onButtonClick = () => registeredUser && register(registeredUser);
+
 
     return (
-        <AuthMessage
-            svg={RegisterErrorIcon}
+        <Result
+            status='error'
             title='Данные не сохранились'
-            text='Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.'
-            buttonText='Повторить'
-            onClick={repeatRegister}
-            dataTestId='registration-retry-button'
+            subTitle='Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.'
+            extra={
+                <Button
+                    type='primary'
+                    block
+                    size='large'
+                    onClick={onButtonClick}
+                    data-test-id='registration-retry-button'
+                >
+                    Повторить
+                </Button>
+            }
         />
     );
 };

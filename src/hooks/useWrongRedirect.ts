@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { useAppSelector } from './typed-react-redux-hooks';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { PATHS } from '@constants/navigation/paths';
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { useAppSelector } from './typed-react-redux-hooks';
 
 export const useWrongRedirect = () => {
     const previousLocations = useAppSelector((store) => store.router.previousLocations);

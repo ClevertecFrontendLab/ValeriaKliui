@@ -1,9 +1,10 @@
+import { RESET_PASSWORD_ERROR_NO_EMAIL } from '@constants/index';
+import { PATHS } from '@constants/navigation/paths';
 import { useCheckEmailMutation } from '@redux/services/authorize';
 import { useEffect, useState } from 'react';
-import { ErrorType, FormData } from './interfaces';
-import { RESET_PASSWORD_ERROR_NO_EMAIL } from '@constants/index';
 import { useNavigate } from 'react-router-dom';
-import { PATHS } from '@constants/navigation/paths';
+
+import { ErrorType, FormData } from './interfaces';
 
 export const useResetPassword = () => {
     const [reset, { data, isError, isSuccess }] = useCheckEmailMutation();
