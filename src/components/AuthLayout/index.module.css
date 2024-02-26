@@ -27,12 +27,6 @@
     display: flex;
     min-height: 345px;
     flex-direction: column;
-
-    @media (max-width: 640px) {
-        padding: 34px 16px 28px;
-        width: 328px;
-        min-height: unset;
-    }
 }
 
 .Tabs {
@@ -45,8 +39,16 @@
     display: block;
     align-self: center;
     margin-bottom: 40px;
+}
 
-    @media (max-width: 480px) {
+@media (max-width: 480px) {
+    .AuthContent {
+        padding: 34px 16px 28px;
+        width: 328px;
+        min-height: unset;
+    }
+
+    .Logo {
         width: 203px;
         margin-bottom: 28px;
     }

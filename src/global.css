@@ -18,7 +18,7 @@
         url('../fonts/Inter-Regular.woff2') format('woff2');
 }
 
-.ant-typography + h1.ant-typography {
+.ant-typography+h1.ant-typography {
     margin: 0;
 }
 
@@ -28,16 +28,6 @@ h1.ant-typography {
     margin: 0;
     line-height: 130%;
     white-space: pre-line;
-
-    @media (max-width: 834px) {
-        font-size: 24px;
-    }
-
-    @media (max-width: 480px) {
-        font-size: 20px;
-        font-family: 'Inter Medium';
-        white-space: unset;
-    }
 }
 
 h2.ant-typography {
@@ -51,12 +41,11 @@ h3.ant-typography,
     line-height: 130%;
     font-size: 24px;
 }
+
 .ant-result-title {
     white-space: pre;
-    @media (max-width: 480px) {
-        white-space: pre-line;
-    }
 }
+
 h4.ant-typography {
     font-family: 'Inter Medium';
     font-size: 20px;
@@ -64,7 +53,7 @@ h4.ant-typography {
     margin: 0;
 }
 
-h4.ant-typography + h4.ant-typography {
+h4.ant-typography+h4.ant-typography {
     margin: 0;
 }
 
@@ -89,11 +78,9 @@ a.ant-typography {
     white-space: pre-line;
     line-height: 130%;
     display: block;
-
-    @media (max-width: 480px) {
-        white-space: pre-line;
-    }
 }
+
+
 .text {
     font-family: 'Inter Regular';
     font-size: 16px;
@@ -106,6 +93,7 @@ span.ant-menu-title-content,
     font-family: 'Inter Regular';
     font-size: 14px;
 }
+
 .ant-result-subtitle {
     line-height: 130%;
 }
@@ -144,8 +132,31 @@ span.ant-menu-title-content,
 
 .ant-layout-sider-collapsed {
     min-width: 64px !important;
+}
 
-    @media (max-width: 480px) {
+@media (max-width: 834px) {
+    h1.ant-typography {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1.ant-typography {
+        font-size: 20px;
+        font-family: 'Inter Medium';
+        white-space: unset;
+    }
+
+    .ant-result-title {
+        white-space: pre-line;
+    }
+
+    h6,
+    a.ant-typography {
+        white-space: pre-line;
+    }
+
+    .ant-layout-sider-collapsed {
         min-width: 0 !important;
     }
 }

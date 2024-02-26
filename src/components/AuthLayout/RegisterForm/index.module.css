@@ -1,6 +1,7 @@
 .Container {
     margin-top: 12px;
 }
+
 .Password {
     margin-bottom: 44px;
 }
@@ -12,8 +13,9 @@
 .Button {
     margin-bottom: 12px;
 }
-.ButtonNetwork svg {
-    @media (max-width: 640px) {
+
+@media (max-width: 480px) {
+    .ButtonNetwork svg {
         display: none;
     }
 }

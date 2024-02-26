@@ -8,49 +8,63 @@
     padding: 0;
     justify-content: space-between;
     padding: 16px 22px 22px;
-
-    @media (max-width: 480px) {
-        padding: 0 32px 7px 0;
-    }
 }
+
 
 .HeaderText {
     display: flex;
     flex-direction: column;
     gap: 14px;
-
-    @media (max-width: 834px) {
-        flex: 0 0 82%;
-    }
-
-    @media (max-width: 480px) {
-        padding: 15px 24px;
-        gap: 7px;
-        flex: 0 0 93%;
-    }
 }
 
 .SettingsContainer {
     margin: 33px 17px;
-
-    @media (max-width: 834px) {
-        margin: 2.3% 2%;
-    }
-
-    @media (max-width: 480px) {
-        margin: 2.3% 0%;
-    }
 }
 
 .Settings {
     display: flex;
     gap: 10px;
+}
 
-    @media (max-width: 834px) {
+
+.SettingsText {
+    word-break: normal;
+}
+
+@media (max-width: 834px) {
+    .HeaderText {
+        flex: 0 0 82%;
+    }
+
+    .SettingsContainer {
+        margin: 2.3% 2%;
+    }
+
+    .Settings {
         margin-top: 25%;
     }
 
-    @media (max-width: 480px) {
+    .SettingsIcon {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .Header {
+        padding: 0 32px 7px 0;
+    }
+
+    .HeaderText {
+        padding: 15px 24px;
+        gap: 7px;
+        flex: 0 0 93%;
+    }
+
+    .SettingsContainer {
+        margin: 2.3% 0%;
+    }
+
+    .Settings {
         margin-top: 85%;
         background-color: var(--white);
         border-radius: 50%;
@@ -61,22 +75,12 @@
         justify-content: center;
         box-shadow: 0 0 1px var(--shadow);
     }
-}
 
-.SettingsIcon {
-    @media (max-width: 834px) {
-        display: none;
-    }
-
-    @media (max-width: 480px) {
+    .SettingsIcon {
         display: block;
     }
-}
 
-.SettingsText {
-    word-break: normal;
-
-    @media (max-width: 480px) {
+    .SettingsText {
         display: none;
     }
 }

@@ -2,19 +2,27 @@
     padding-bottom: 20px;
     text-align: center;
 }
+
 .Password {
     padding-bottom: 12px;
 }
+
 .ConfirmPassword {
     padding-bottom: 10px;
-    @media (max-width: 480px) {
-        padding: 0;
-    }
 }
+
+
 .Button {
     position: relative;
     top: 20px;
-    @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
+    .ConfirmPassword {
+        padding: 0;
+    }
+
+    .Button {
         top: 24px;
     }
 }
