@@ -1,0 +1,87 @@
+@import '../../constants/styles/vars.css';
+
+.ant-form-item input {
+    height: 40px;
+    max-height: 40px;
+    font-family: 'Inter Regular';
+    font-size: 14px;
+}
+
+.character,
+.ant-input::placeholder {
+    font-family: 'Inter Regular';
+    font-size: 14px;
+}
+
+.ant-input-affix-wrapper {
+    padding: 0 11px;
+}
+
+.ant-form-item {
+    margin-bottom: 32px;
+}
+
+.ant-input-group-addon {
+    width: 70px;
+}
+
+.ant-form-item-control-input-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ant-btn {
+    font-family: 'Inter Regular';
+    font-size: 16px;
+}
+
+.ant-tabs-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ant-tabs-tab {
+    width: 50%;
+    justify-content: center;
+}
+
+.ant-form-item-explain {
+    font-size: 12px;
+}
+
+.ant-result {
+    padding: 0;
+}
+
+.ant-result-icon {
+    margin-bottom: 28px;
+}
+
+.container {
+    margin-bottom: 15px;
+    gap: 12px;
+}
+
+.character {
+    color: transparent;
+    border: 1px solid var(--gray4);
+    width: 40px;
+    height: 40px;
+}
+
+.character--inactive {
+    background-color: transparent;
+    color: transparent;
+}
+
+.character--filled {
+    background-color: transparent;
+    color: var(--black);
+    line-height: 40px;
+}
+
+.character--error {
+    border: 1px solid var(--red);
+}

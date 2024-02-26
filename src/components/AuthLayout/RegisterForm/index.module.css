@@ -1,0 +1,21 @@
+.Container {
+    margin-top: 12px;
+}
+
+.Password {
+    margin-bottom: 44px;
+}
+
+.ConfirmPassword {
+    margin-bottom: 60px;
+}
+
+.Button {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+    .ButtonNetwork svg {
+        display: none;
+    }
+}

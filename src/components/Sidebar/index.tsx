@@ -1,13 +1,16 @@
-import { FC } from 'react';
-import { Layout } from 'antd';
-import styles from './index.module.css';
+import './index.css';
+
 import { Menu } from '@components/Menu';
+import { SidebarClose } from '@components/SidebarClose';
+import { Layout } from 'antd';
+import { Grid } from 'antd';
+import { FC } from 'react';
+
 import logo from '/img/logo.svg';
 import logoCollapsed from '/img/logo_collapsed.svg';
+
+import styles from './index.module.css';
 import { SidebarProps } from './interfaces';
-import { Grid } from 'antd';
-import { SidebarClose } from '@components/SidebarClose';
-import './index.css'
 
 const { useBreakpoint } = Grid;
 
@@ -26,11 +29,18 @@ export const Sidebar: FC<SidebarProps> = ({ collapsed, toggleSidebar }) => {
                 collapsed={collapsed}
                 collapsible
             >
-                <img
-                    src={collapsed ? logoCollapsed : logo}
-                    className={styles.Logo}
-                    alt='CleverFit'
-                />
+                <div
+                    className={[
+                        styles.LogoContainer,
+                        collapsed ? styles.LogoContainerCollapsed : '',
+                    ].join(' ')}
+                >
+                    <img
+                        src={collapsed ? logoCollapsed : logo}
+                        alt='CleverFit'
+                        className={styles.Logo}
+                    />
+                </div>
                 <Menu />
                 {!xs && <SidebarClose onClick={toggleSidebar} />}
             </Sider>

@@ -1,56 +1,70 @@
 @import '../../constants/styles/vars.css';
 
 .Header {
-    background-color: #f0f5ff;
+    background-color: var(--blue1);
     height: unset;
     line-height: 130%;
     display: flex;
     padding: 0;
     justify-content: space-between;
     padding: 16px 22px 22px;
-
-    @media (max-width: 480px) {
-        padding: 0 32px 7px 0;
-    }
 }
+
 
 .HeaderText {
     display: flex;
     flex-direction: column;
     gap: 14px;
-
-    @media (max-width: 834px) {
-        flex: 0 0 82%;
-    }
-
-    @media (max-width: 480px) {
-        padding: 15px 24px;
-        gap: 7px;
-        flex: 0 0 93%;
-    }
 }
 
 .SettingsContainer {
     margin: 33px 17px;
-
-    @media (max-width: 834px) {
-        margin: 2.3% 2%;
-    }
-
-    @media (max-width: 480px) {
-        margin: 2.3% 0%;
-    }
 }
 
 .Settings {
     display: flex;
     gap: 10px;
+}
 
-    @media (max-width: 834px) {
+
+.SettingsText {
+    word-break: normal;
+}
+
+@media (max-width: 834px) {
+    .HeaderText {
+        flex: 0 0 82%;
+    }
+
+    .SettingsContainer {
+        margin: 2.3% 2%;
+    }
+
+    .Settings {
         margin-top: 25%;
     }
 
-    @media (max-width: 480px) {
+    .SettingsIcon {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .Header {
+        padding: 0 32px 7px 0;
+    }
+
+    .HeaderText {
+        padding: 15px 24px;
+        gap: 7px;
+        flex: 0 0 93%;
+    }
+
+    .SettingsContainer {
+        margin: 2.3% 0%;
+    }
+
+    .Settings {
         margin-top: 85%;
         background-color: var(--white);
         border-radius: 50%;
@@ -59,23 +73,14 @@
         border: 1px solid var(--gray2);
         align-items: center;
         justify-content: center;
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-    }
-}
-
-.SettingsIcon {
-    @media (max-width: 834px) {
-        display: none;
+        box-shadow: 0 0 1px var(--shadow);
     }
 
-    @media (max-width: 480px) {
+    .SettingsIcon {
         display: block;
     }
-}
 
-.SettingsText {
-    word-break: normal;
-    @media (max-width: 480px) {
+    .SettingsText {
         display: none;
     }
 }

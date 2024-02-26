@@ -1,10 +1,11 @@
-import { FC, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 import { Sidebar } from '@components/Sidebar/index';
+import { Layout } from 'antd';
+import { FC, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+
 import styles from './index.module.css';
-import { Footer } from '@components/Footer';
 
 const { Content } = Layout;
 
