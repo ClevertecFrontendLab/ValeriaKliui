@@ -5,20 +5,25 @@ import { createReduxHistoryContext } from 'redux-first-history';
 
 import { authorizeApi } from './services/authorize';
 import authReducer from './slices/authSlice';
+import { feedbackApi } from './services/feedback';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
-    savePreviousLocations: 10
+    savePreviousLocations: 10,
 });
 
 export const store = configureStore({
     reducer: combineReducers({
         router: routerReducer,
         [authorizeApi.reducerPath]: authorizeApi.reducer,
-        auth: authReducer
+        feedbackApi: feedbackApi.reducer,
+        auth: authReducer,
     }),
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(routerMiddleware).concat(authorizeApi.middleware),
+        getDefaultMiddleware()
+            .concat(routerMiddleware)
+            .concat(authorizeApi.middleware)
+            .concat(feedbackApi.middleware),
 });
 
 export const history = createReduxHistory(store);

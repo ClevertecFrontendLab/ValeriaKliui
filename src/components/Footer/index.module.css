@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: flex-end;
     padding: 42px 24px 43px 38px;
+    flex-grow: 1;
 
     @media (max-width: 480px) {
         flex-direction: column;

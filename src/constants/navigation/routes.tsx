@@ -24,8 +24,8 @@ export const NAVIGATION_ITEMS = (
         <Route path={PATHS.DEFAULT} element={<Navigate to={PATHS.AUTH} />} />
 
         <Route element={<ProtectedRoute />}>
-            <Route path={PATHS.MAIN} element={<BasicLayout />}>
-                <Route index element={<MainPage />} />
+            <Route element={<BasicLayout />}>
+                <Route path={PATHS.MAIN} element={<MainPage />} />
                 <Route path={PATHS.FEEDBACK} element={<FeedbackPage />} />
             </Route>
         </Route>

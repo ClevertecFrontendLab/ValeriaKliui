@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from './typed-react-redux-hooks';
 import { useLocalStorage } from './useLocalStorage';
 
 export const useLoginUser = (): UseLoginUserReturns => {
-    const [loginUser, { data, isError }] = useLoginUserMutation();
+    const [loginUser, { data, isError, isSuccess }] = useLoginUserMutation();
     const navigate = useNavigate();
     const { accessToken } = data ?? {};
     const [error, setError] = useState<ErrorType | null>(null);
@@ -23,7 +23,7 @@ export const useLoginUser = (): UseLoginUserReturns => {
         if (accessToken) {
             setStoragedValue(accessToken);
         }
-        if (storagedValue) navigate(PATHS.MAIN);
+        if (storagedValue && isSuccess) navigate(PATHS.MAIN);
         if (isError) navigate(PATHS.LOGIN_ERROR);
     }, [accessToken, navigate, setStoragedValue, storagedValue, isError]);
 

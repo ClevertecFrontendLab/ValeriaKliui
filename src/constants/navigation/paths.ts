@@ -2,7 +2,7 @@ export enum PATHS {
     DEFAULT = '/',
     AUTH = '/auth',
     MAIN = '/main',
-    FEEDBACK = 'feedback',
+    FEEDBACK = 'feedbacks',
     RESULT = '/result',
     REGISTER = 'registration',
     REGISTER_SUCCESS = '/result/success',

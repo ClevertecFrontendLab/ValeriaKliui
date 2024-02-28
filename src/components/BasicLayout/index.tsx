@@ -25,7 +25,6 @@ export const BasicLayout: FC = () => {
                 >
                     <Outlet />
                 </Content>
-                <Footer />
             </Layout>
         </Layout>
     );
