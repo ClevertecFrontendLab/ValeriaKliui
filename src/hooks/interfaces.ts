@@ -12,8 +12,8 @@ export interface UseSessionStorageReturns {
 export interface UserData {
     email: string;
     password: string;
-    remember: boolean;
-    confirmPassword: string;
+    remember?: boolean;
+    confirmPassword?: string;
 }
 
 export interface UseLoginUserReturns {
@@ -30,4 +30,4 @@ export interface ErrorType {
     };
 }
 
-export type FormData = Record<string, string> & { email: string; password: string };
+export type FormData = Record<string, string> & UserData;

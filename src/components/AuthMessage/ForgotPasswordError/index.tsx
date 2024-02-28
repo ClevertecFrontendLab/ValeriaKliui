@@ -3,6 +3,7 @@ import { useResetPassword } from '@hooks/useResetPassword';
 import { selectEmail } from '@redux/slices/authSlice';
 import { Button, Result } from 'antd';
 import { FC } from 'react';
+
 import styles from './index.module.css';
 
 export const ForgotPasswordError: FC = () => {

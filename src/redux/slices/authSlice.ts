@@ -1,7 +1,7 @@
 import { UserData } from '@hooks/interfaces';
 import { RootState } from '@redux/configure-store';
 import { authorizeApi } from '@redux/services/authorize';
-import { createSlice,PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { AuthState } from './interfaces';
 

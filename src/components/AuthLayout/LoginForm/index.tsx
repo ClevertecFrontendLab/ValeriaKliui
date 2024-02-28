@@ -25,20 +25,23 @@ export const LoginForm: FC = () => {
         resetPassword(formData);
     };
 
+    const onValuesChange = (fieldsData: FormData | null) => {
+        setFormData(fieldsData);
+        fieldsData != null && dispatch(saveUser(fieldsData));
+    }
+
     const emailPrefix = (
         <Form.Item name='prefix' noStyle>
             <Text>e-mail:</Text>
         </Form.Item>
     );
+
     return (
         <Form
             name='normal_login'
             initialValues={{ remember: true }}
             onFinish={login}
-            onValuesChange={(fieldsData) => {
-                setFormData(fieldsData);
-                dispatch(saveUser(fieldsData));
-            }}
+            onValuesChange={onValuesChange}
             onFieldsChange={(fieldsData) => {
                 fieldsData.some(({ name, errors }) => {
                     if (name[0] === 'email') {

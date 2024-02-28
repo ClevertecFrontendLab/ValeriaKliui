@@ -7,6 +7,7 @@ import { Button, Form, Input } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import styles from './index.module.css';
 
 export const ChangePasswordForm: FC = () => {

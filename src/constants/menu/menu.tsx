@@ -1,11 +1,11 @@
 import { PATHS } from "@constants/navigation/paths";
 
 export const AUTH_TABS = [{
-    key: '1',
+    key: PATHS.AUTH,
     label: 'Вход',
     path: PATHS.AUTH
 }, {
-    key: '2',
+    key: PATHS.REGISTER,
     label: 'Регистрация',
     path: PATHS.REGISTER
 }]

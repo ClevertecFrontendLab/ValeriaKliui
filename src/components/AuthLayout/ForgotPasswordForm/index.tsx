@@ -7,6 +7,7 @@ import { Result, Typography } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import VerificationInput from 'react-verification-input';
+
 import styles from './index.module.css'
 const { Text } = Typography;
 
@@ -35,6 +36,7 @@ export const ForgotPasswordForm: FC = () => {
             navigate(PATHS.AUTH + '/' + PATHS.CHANGE_PASSWORD);
         }
     }, [isSuccess, navigate]);
+
     return (
         <Result
             status={error ? 'error' : 'info'}

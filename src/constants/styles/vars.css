@@ -7,7 +7,7 @@
     --gray1: #f2f2f2;
     --gray2: #d9d9d9;
     --gray4: #8c8c8c;
-    --red: #ff0000;
+    --red: #f00;
     --shadow: rgba(0, 0, 0, 0.15);
     --animation: border-color 0.3s, background 0.3s, padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }

@@ -15,3 +15,5 @@ export enum PATHS {
     CHANGE_PASSWORD_ERROR = '/result/error-change-password',
     CHANGE_PASSWORD_SUCCESS = '/result/success-change-password',
 }
+
+export const PATHS_NO_DIRECT_ACCESS = ['result', PATHS.FORGOT_PASSWORD, PATHS.CHANGE_PASSWORD];
