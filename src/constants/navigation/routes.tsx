@@ -17,6 +17,7 @@ import { MainPage } from '@pages/MainPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { PATHS } from './paths';
+import { FeedbackPage } from '@pages/FeedbackPage';
 
 export const NAVIGATION_ITEMS = (
     <Routes>
@@ -25,6 +26,7 @@ export const NAVIGATION_ITEMS = (
         <Route element={<ProtectedRoute />}>
             <Route path={PATHS.MAIN} element={<BasicLayout />}>
                 <Route index element={<MainPage />} />
+                <Route path={PATHS.FEEDBACK} element={<FeedbackPage />} />
             </Route>
         </Route>
 

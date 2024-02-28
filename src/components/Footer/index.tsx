@@ -1,5 +1,5 @@
 import { APPS_AVAILABLE } from '@constants/cards/cards';
-import { Card,Layout } from 'antd';
+import { Card, Layout } from 'antd';
 import { FC } from 'react';
 
 import styles from './index.module.css';
@@ -8,12 +8,13 @@ import './index.css';
 
 import { Typography } from 'antd';
 import Link from 'antd/lib/typography/Link';
+import { PATHS } from '@constants/navigation/paths';
 
 const { Text } = Typography;
 
 export const Footer: FC = () => (
     <FooterA className={styles.Footer}>
-        <Link className={styles.FooterText}>Смотреть отзывы</Link>
+        <Link className={styles.FooterText} href={'main/feedback'}>Смотреть отзывы</Link>
         <Card
             className={styles.FooterCard}
             actions={APPS_AVAILABLE.map(({ app, icon }) => (
