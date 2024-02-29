@@ -1,8 +1,8 @@
 import { PATHS } from '@constants/navigation/paths';
 import { ErrorType } from '@hooks/interfaces';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { useConfirmEmailMutation } from '@redux/services/authorize';
-import { selectEmail } from '@redux/slices/authSlice';
+import { useConfirmEmailMutation } from '@redux/services/authorizeApi';
+import { selectEmail } from '@redux/slices/appSlice';
 import { Result, Typography } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

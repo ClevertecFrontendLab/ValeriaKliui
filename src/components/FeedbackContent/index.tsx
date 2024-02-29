@@ -1,4 +1,4 @@
-import { CommentsList } from "@components/CommentsList";
+import { FeedbackList } from "@components/FeedbackList";
 import { FC } from "react";
 
-export const FeedbackContent: FC = () => <CommentsList />
+export const FeedbackContent: FC = () => <FeedbackList />

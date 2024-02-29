@@ -1,6 +1,6 @@
 import { PATHS } from '@constants/navigation/paths';
 import { ErrorType } from '@hooks/interfaces';
-import { useChangePasswordMutation } from '@redux/services/authorize';
+import { useChangePasswordMutation } from '@redux/services/authorizeApi';
 import { ChangePasswordData } from '@redux/services/interfaces';
 import { validateConfirmationPassword, validatePassword } from '@utils/validationRules';
 import { Button, Form, Input } from 'antd';

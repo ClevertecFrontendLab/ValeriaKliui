@@ -2,7 +2,7 @@ import { GooglePlusOutlined } from '@ant-design/icons';
 import { FormData } from '@hooks/interfaces';
 import { useLoginUser } from '@hooks/useLoginUser';
 import { useResetPassword } from '@hooks/useResetPassword';
-import { saveUser } from '@redux/slices/authSlice';
+import { saveUser } from '@redux/slices/appSlice';
 import { validateEmail, validatePassword } from '@utils/validationRules';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Typography } from 'antd';

@@ -1,6 +1,6 @@
 import { RESET_PASSWORD_ERROR_NO_EMAIL } from '@constants/index';
 import { PATHS } from '@constants/navigation/paths';
-import { useCheckEmailMutation } from '@redux/services/authorize';
+import { useCheckEmailMutation } from '@redux/services/authorizeApi';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

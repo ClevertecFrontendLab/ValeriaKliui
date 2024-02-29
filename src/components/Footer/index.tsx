@@ -6,9 +6,9 @@ import styles from './index.module.css';
 const { Footer: FooterA } = Layout;
 import './index.css';
 
+import { PATHS } from '@constants/navigation/paths';
 import { Typography } from 'antd';
 import Link from 'antd/lib/typography/Link';
-import { PATHS } from '@constants/navigation/paths';
 
 const { Text } = Typography;
 

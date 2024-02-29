@@ -13,11 +13,11 @@ import { RegisterSuccess } from '@components/AuthMessage/RegisterSuccess';
 import { BasicLayout } from '@components/BasicLayout';
 import { ProtectedRoute } from '@components/ProtectedRoute';
 import { AuthPage } from '@pages/AuthPage';
+import { FeedbackPage } from '@pages/FeedbackPage';
 import { MainPage } from '@pages/MainPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { PATHS } from './paths';
-import { FeedbackPage } from '@pages/FeedbackPage';
 
 export const NAVIGATION_ITEMS = (
     <Routes>

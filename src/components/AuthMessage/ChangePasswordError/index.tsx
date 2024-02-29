@@ -1,8 +1,8 @@
 import { PATHS } from '@constants/navigation/paths';
 import { useAppSelector } from '@hooks/index';
 import { ErrorType } from '@hooks/interfaces';
-import { useChangePasswordMutation } from '@redux/services/authorize';
-import { selectConfirmedPassword, selectPassword } from '@redux/slices/authSlice';
+import { useChangePasswordMutation } from '@redux/services/authorizeApi';
+import { selectConfirmedPassword, selectPassword } from '@redux/slices/appSlice';
 import { Button, Result } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

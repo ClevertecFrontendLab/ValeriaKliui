@@ -1,6 +1,6 @@
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { useResetPassword } from '@hooks/useResetPassword';
-import { selectEmail } from '@redux/slices/authSlice';
+import { selectEmail } from '@redux/slices/appSlice';
 import { Button, Result } from 'antd';
 import { FC } from 'react';
 

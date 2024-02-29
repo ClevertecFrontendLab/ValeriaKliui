@@ -1,7 +1,7 @@
 import { REGISTER_ERROR_USER_EXIST } from '@constants/index';
 import { PATHS } from '@constants/navigation/paths';
-import { useRegisterMutation } from '@redux/services/authorize';
-import { saveUser } from '@redux/slices/authSlice';
+import { useRegisterMutation } from '@redux/services/authorizeApi';
+import { saveUser } from '@redux/slices/appSlice';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

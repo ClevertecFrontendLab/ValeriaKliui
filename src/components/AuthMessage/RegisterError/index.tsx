@@ -1,6 +1,6 @@
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { useRegisterUser } from '@hooks/useRegisterUser';
-import { selectUser } from '@redux/slices/authSlice';
+import { selectUser } from '@redux/slices/appSlice';
 import { Button, Result } from 'antd';
 import { FC } from 'react';
 
