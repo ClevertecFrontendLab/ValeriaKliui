@@ -1,4 +1,4 @@
-import { REGISTER_ERROR_USER_EXIST } from '@constants/index';
+import { REGISTER_ERROR_USER_EXIST } from '@constants/navigation/constants';
 import { PATHS } from '@constants/navigation/paths';
 import { useRegisterMutation } from '@redux/services/authorizeApi';
 import { saveUser } from '@redux/slices/appSlice';

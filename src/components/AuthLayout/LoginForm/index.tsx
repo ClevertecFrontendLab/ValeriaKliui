@@ -11,6 +11,8 @@ import { FC, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import styles from './index.module.css';
+import { useLazyGoogleAuthQuery } from '@redux/services/authorizeApi';
+import { useLazyGetFeedbackQuery } from '@redux/services/feedbackApi';
 const { Text } = Typography;
 
 export const LoginForm: FC = () => {
@@ -18,6 +20,7 @@ export const LoginForm: FC = () => {
     const [isEmailValidated, setIsEmailValidated] = useState(false);
     const { login } = useLoginUser();
     const dispatch = useDispatch();
+    const [loginGoogle] = useLazyGetFeedbackQuery()
 
     const { resetPassword } = useResetPassword();
     const reset = (e: MouseEvent<HTMLElement>) => {
@@ -100,6 +103,7 @@ export const LoginForm: FC = () => {
                     htmlType='submit'
                     block
                     size='large'
+                    onClick={() => loginGoogle({})}
                     className={styles.ButtonNetwork}
                 >
                     Войти через Google

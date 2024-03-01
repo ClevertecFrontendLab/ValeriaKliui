@@ -9,7 +9,7 @@ import styles from './index.module.css';
 
 const { Title, Text } = Typography;
 
-export const MainPageContent: FC = () => (
+export const InfoCards: FC = () => (
     <div className={styles.MainContent}>
         <Space direction={'vertical'} size='large' className={styles.MainSpace}>
             <Card>

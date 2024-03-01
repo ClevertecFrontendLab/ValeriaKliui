@@ -1,0 +1,8 @@
+.ant-comment-avatar {
+    flex-basis: 15%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}

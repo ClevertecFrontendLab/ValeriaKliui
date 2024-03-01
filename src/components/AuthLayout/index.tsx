@@ -1,6 +1,6 @@
 import './index.css';
 
-import { AUTH_TABS } from '@constants/menu/menu';
+import { AUTH_TABS } from '@constants/menu';
 import { PATHS_NO_DIRECT_ACCESS } from '@constants/navigation/paths';
 import { useWrongRedirect } from '@hooks/useWrongRedirect';
 import { Tabs } from 'antd';

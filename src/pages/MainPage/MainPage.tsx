@@ -1,10 +1,10 @@
 import { Footer } from '@components/Footer';
-import { MainPageContent } from '@components/MainPageContent/index';
+import { InfoCards } from '@components/InfoCards/index';
 import React from 'react';
 
 export const MainPage: React.FC = () => (
     <>
-        <MainPageContent />
+        <InfoCards />
         <Footer />
     </>
 );

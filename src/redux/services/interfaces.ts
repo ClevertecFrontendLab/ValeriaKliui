@@ -4,7 +4,7 @@ export type ConfirmEmailData = Pick<UserData, 'email'> & { code: string };
 
 export type ChangePasswordData = Pick<UserData, 'password'> & { confirmPassword: string };
 
-export interface Feedback {
+export interface FeedbackI {
     id: string,
     fullName: string | null,
     imageSrc: string | null,

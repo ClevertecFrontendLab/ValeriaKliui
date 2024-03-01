@@ -1,0 +1,1 @@
+export const FEEDBACK_INIT_AMOUNT = 4

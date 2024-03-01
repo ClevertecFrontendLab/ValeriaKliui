@@ -1,0 +1,18 @@
+@import '../../constants/styles/vars.css';
+
+.Feedback {
+    background-color: var(--white);
+    padding: 0 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px 0 var(--shadow);
+}
+
+.Stars {
+    display: flex;
+    gap: 5px;
+}
+
+.Info {
+    display: flex;
+    gap: 16px;
+}
