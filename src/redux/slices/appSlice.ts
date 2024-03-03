@@ -6,7 +6,7 @@ import { AuthState } from './interfaces';
 
 const initialState: AuthState = {
     user: null,
-    token: null,
+    token: null ?? localStorage.getItem('accessToken'),
 };
 
 const appSlice = createSlice({

@@ -30,7 +30,10 @@ export const useFeedbacks = (): UseFeedbacksReturns => {
     const [isFeedbackModalOpened, setIsFeedbackModalOpened] = useState(false);
     const [isFeedbackErrorModalOpened, setIsFeedbackErrorModalOpened] = useState(false);
     const openWritingModal = () => setIsFeedbackModalOpened(true);
-    const closeFeedbackErrorModal = () => setIsFeedbackErrorModalOpened(false);
+    const closeFeedbackErrorModal = () => {
+        setIsFeedbackErrorModalOpened(false);
+        navigate(PATHS.MAIN);
+    };
 
     useEffect(() => {
         if (error?.status === FEEDBACKS_ERROR) {

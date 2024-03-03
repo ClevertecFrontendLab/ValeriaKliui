@@ -20,6 +20,7 @@ export const useLoginUser = (): UseLoginUserReturns => {
     const { storagedValue, setStoragedValue, removeFromStorage } = useLocalStorage('accessToken');
 
     const loginedUser = useAppSelector(selectUser);
+    const accessToken = useAppSelector((state) => state.app.token);
 
     useEffect(() => {
         if (storagedValue && isSuccess) navigate(PATHS.MAIN);
@@ -34,11 +35,10 @@ export const useLoginUser = (): UseLoginUserReturns => {
             localStorage.setItem('accessToken', JSON.stringify(accessTokenGoogle));
             navigate(PATHS.MAIN);
         }
-        window.addEventListener('beforeunload', () => {
-            if (loginedUser && loginedUser.remember === false) {
-                removeFromStorage();
-            }
-        });
+
+        if (loginedUser && (loginedUser.remember === false || !loginedUser.remember)) {
+            removeFromStorage();
+        }
     }, []);
 
     const login = async (userData: UserData) => {

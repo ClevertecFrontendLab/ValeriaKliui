@@ -6,7 +6,7 @@ export const feedbackApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getFeedback: builder.query<FeedbackI[], undefined>({
             query: () => ({
-                url: 'feedbkack',
+                url: 'feedback',
                 method: 'GET',
             }),
             providesTags: ['Feedbacks'],
