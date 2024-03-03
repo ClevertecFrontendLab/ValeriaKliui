@@ -18,10 +18,11 @@ import { MainPage } from '@pages/MainPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { PATHS } from './paths';
+import { Redirect } from '@components/Redirect';
 
 export const NAVIGATION_ITEMS = (
     <Routes>
-        <Route path={PATHS.DEFAULT} element={<Navigate to={PATHS.AUTH} />} />
+        <Route path={PATHS.DEFAULT} element={<Redirect />} />
 
         <Route element={<ProtectedRoute />}>
             <Route element={<BasicLayout />}>

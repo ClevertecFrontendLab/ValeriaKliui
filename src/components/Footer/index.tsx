@@ -14,7 +14,7 @@ const { Text } = Typography;
 
 export const Footer: FC = () => (
     <FooterA className={styles.Footer}>
-        <Link className={styles.FooterText} href={PATHS.FEEDBACK}>Смотреть отзывы</Link>
+        <Link className={styles.FooterText} href={PATHS.FEEDBACK} data-test-id='see-reviews'>Смотреть отзывы</Link>
         <Card
             className={styles.FooterCard}
             actions={APPS_AVAILABLE.map(({ app, icon }) => (

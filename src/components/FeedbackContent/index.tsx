@@ -2,60 +2,68 @@ import { FeedbackList } from '@components/FeedbackList';
 import { FEEDBACK_INIT_AMOUNT } from '@constants/feebacks';
 import { useGetFeedbackQuery, usePostFeedbackMutation } from '@redux/services/feedbackApi';
 import { Button, Modal, Result } from 'antd';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import styles from './index.module.css';
-import { FeedbackModal } from '@components/FeedbackModal';
-import { FeedbackI } from '@redux/services/interfaces';
+import { FeedbackWritingModal } from '@components/Modals/FeedbackWritingModal';
+import { useFeedbacks } from '@hooks/useFeedbacks';
+import { usePostFeedback } from '@hooks/usePostFeedback';
+import { FeedbacksErrorModal } from '@components/Modals/FeedbacksErrorModal';
+import { FeedbackWritingModalError } from '@components/Modals/FeedbackWritingModalError';
+import { FeedbackWritingModalSuccess } from '@components/Modals/FeedbackWritingModalSuccess';
 
 export const FeedbackContent: FC = () => {
-    const [isModalOpened, setIsModalOpened] = useState(false);
-    const { data: feedbacks } = useGetFeedbackQuery({});
-    const [feedbackAmount, setFeedbackAmount] = useState(FEEDBACK_INIT_AMOUNT);
-    const [postFeedback, { isError }] = usePostFeedbackMutation();
-    const feebackShowed =
-        feedbacks &&
-        [...feedbacks]
-            .sort((a: FeedbackI, b: FeedbackI) => new Date(b.createdAt) - new Date(a.createdAt))
-            .slice(0, feedbackAmount);
+    const {
+        feedbacks,
+        openWritingModal,
+        isFeedbackModalOpened,
+        showAllFeedbacks,
+        setIsFeedbackModalOpened,
+        isAllFeedbacksShown,
+        isFeedbackErrorModalOpened,
+        closeFeedbackErrorModal,
+    } = useFeedbacks();
+    const {
+        postFeedback,
+        isErrorModalWritingOpened,
+        closeErrorModalWriting,
+        isSuccessModalOpened,
+        closeSuccessModal,
+    } = usePostFeedback();
 
-    const increaseFeedbackAmount = () => {
-        feedbacks &&
-            setFeedbackAmount((prevAmount) =>
-                prevAmount === FEEDBACK_INIT_AMOUNT ? feedbacks.length : FEEDBACK_INIT_AMOUNT,
-            );
+    const tryPostFeedbackAgain = () => {
+        closeErrorModalWriting();
+        setIsFeedbackModalOpened(true);
     };
-    const openModal = () => setIsModalOpened(true);
 
     return (
         <>
-            <FeedbackList feedbacks={feebackShowed} />
-            <div className={styles.Button}>
-                <Button type='primary' onClick={openModal}>
+            <FeedbackList feedbacks={feedbacks} />
+            <div className={styles.Buttons}>
+                <Button type='primary' onClick={openWritingModal} data-test-id='write-review'>
                     Написать отзыв
                 </Button>
-                <Button type='link' onClick={increaseFeedbackAmount}>
-                    {feedbackAmount === feedbacks?.length
-                        ? 'Свернуть все отзывы'
-                        : 'Развернуть все отзывы'}
-                </Button>
+                {feedbacks && feedbacks.length > 0 && (
+                    <Button
+                        type='link'
+                        onClick={showAllFeedbacks}
+                        data-test-id='all-reviews-button'
+                    >
+                        {isAllFeedbacksShown ? 'Свернуть все отзывы' : 'Развернуть все отзывы'}
+                    </Button>
+                )}
             </div>
-            {isError && (
-                <Modal open={true} centered footer={null} closable={false}>
-                    <Result
-                        status='error'
-                        title='Данные не сохранились'
-                        subTitle='Что-то пошло не так. Попробуйте ещё раз.'
-                    />
-                    <Button type='primary' onClick={openModal}>Написать отзыв</Button>
-                    <Button>Закрыть</Button>
-                </Modal>
-            )}
-            <FeedbackModal
-                isOpened={isModalOpened}
-                setIsOpened={setIsModalOpened}
+            <FeedbacksErrorModal
+                open={isFeedbackErrorModalOpened}
+                onCancel={closeFeedbackErrorModal}
+            />
+            <FeedbackWritingModal
+                open={isFeedbackModalOpened}
+                setIsOpened={setIsFeedbackModalOpened}
                 postFeedback={postFeedback}
             />
+            <FeedbackWritingModalError tryPostFeedbackAgain={tryPostFeedbackAgain} open={isErrorModalWritingOpened} onCancel={closeErrorModalWriting} />
+            <FeedbackWritingModalSuccess open={isSuccessModalOpened} onCancel={closeSuccessModal} />
         </>
     );
 };

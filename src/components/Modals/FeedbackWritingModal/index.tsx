@@ -1,11 +1,11 @@
 import { FeedbackForm } from '@components/FeedbackForm';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { usePostFeedbackMutation } from '@redux/services/feedbackApi';
 import { selectFeedback } from '@redux/slices/feedbacksSlice';
 import { Button, Modal } from 'antd';
 import { FC } from 'react';
+import { FeedbacksWritingModalProps } from '../interfaces';
 
-export const FeedbackModal: FC = ({ isOpened, setIsOpened, postFeedback }) => {
+export const FeedbackWritingModal: FC<FeedbacksWritingModalProps> = ({ open, setIsOpened = () => { }, postFeedback }) => {
     const feedback = useAppSelector(selectFeedback);
     const isButtonDisabled = feedback.rating === 0;
 
@@ -21,8 +21,9 @@ export const FeedbackModal: FC = ({ isOpened, setIsOpened, postFeedback }) => {
     return (
         <Modal
             title='Ваш отзыв'
-            open={isOpened}
+            open={open}
             onCancel={handleCancel}
+            centered
             footer={[
                 <Button
                     key='submit'
@@ -30,11 +31,11 @@ export const FeedbackModal: FC = ({ isOpened, setIsOpened, postFeedback }) => {
                     size='large'
                     disabled={isButtonDisabled}
                     onClick={handleOk}
+                    data-test-id='new-review-submit-button'
                 >
                     Опубликовать
                 </Button>,
             ]}
-            centered={true}
         >
             <FeedbackForm />
         </Modal>

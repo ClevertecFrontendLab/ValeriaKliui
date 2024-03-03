@@ -11,16 +11,13 @@ import { FC, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import styles from './index.module.css';
-import { useLazyGoogleAuthQuery } from '@redux/services/authorizeApi';
-import { useLazyGetFeedbackQuery } from '@redux/services/feedbackApi';
 const { Text } = Typography;
 
 export const LoginForm: FC = () => {
     const [formData, setFormData] = useState<FormData | null>(null);
     const [isEmailValidated, setIsEmailValidated] = useState(false);
-    const { login } = useLoginUser();
+    const { login, loginGoogle } = useLoginUser();
     const dispatch = useDispatch();
-    const [loginGoogle] = useLazyGetFeedbackQuery()
 
     const { resetPassword } = useResetPassword();
     const reset = (e: MouseEvent<HTMLElement>) => {
@@ -31,7 +28,7 @@ export const LoginForm: FC = () => {
     const onValuesChange = (fieldsData: FormData | null) => {
         setFormData(fieldsData);
         fieldsData != null && dispatch(saveUser(fieldsData));
-    }
+    };
 
     const emailPrefix = (
         <Form.Item name='prefix' noStyle>
@@ -54,16 +51,10 @@ export const LoginForm: FC = () => {
                 });
             }}
         >
-            <Form.Item
-                name='email'
-                rules={validateEmail()}
-            >
+            <Form.Item name='email' rules={validateEmail()}>
                 <Input addonBefore={emailPrefix} data-test-id='login-email' />
             </Form.Item>
-            <Form.Item
-                name='password'
-                rules={validatePassword()}
-            >
+            <Form.Item name='password' rules={validatePassword()}>
                 <Input.Password
                     placeholder='Пароль'
                     autoComplete='on'
@@ -103,7 +94,7 @@ export const LoginForm: FC = () => {
                     htmlType='submit'
                     block
                     size='large'
-                    onClick={() => loginGoogle({})}
+                    onClick={loginGoogle}
                     className={styles.ButtonNetwork}
                 >
                     Войти через Google

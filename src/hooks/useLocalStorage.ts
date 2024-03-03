@@ -13,7 +13,9 @@ export const useLocalStorage = (key: string): UseLocalStorageReturns => {
         }
     }, [key, storagedValue]);
 
-    const removeFromStorage = () => localStorage.removeItem(key);
+    const removeFromStorage = () => {
+        localStorage.removeItem(key);
+    };
 
     return { storagedValue, setStoragedValue, removeFromStorage };
 };

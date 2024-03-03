@@ -1,3 +1,5 @@
+import { FeedbackI } from '@redux/services/interfaces';
+
 export interface UseLocalStorageReturns {
     storagedValue: string;
     setStoragedValue: (key: string) => void;
@@ -19,6 +21,7 @@ export interface UserData {
 export interface UseLoginUserReturns {
     logOut: () => void;
     login: (userData: UserData) => void;
+    loginGoogle: () => void;
 }
 
 export interface ErrorType {
@@ -31,3 +34,12 @@ export interface ErrorType {
 }
 
 export type FormData = Record<string, string> & UserData;
+
+export interface UseFeedbacksReturns {
+    feedbacks?: FeedbackI[];
+    openWritingModal: () => void;
+    isFeedbackModalOpened: boolean;
+    showAllFeedbacks: () => void;
+    setIsFeedbackModalOpened: (isOpened: boolean) => void;
+    isAllFeedbacksShown: boolean;
+}

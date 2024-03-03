@@ -42,12 +42,6 @@ export const authorizeApi = baseApi.injectEndpoints({
                 credentials: 'include',
             }),
         }),
-        googleAuth: builder.query({
-            query: () => ({
-                url: 'google',
-                method: 'GET',
-            }),
-        }),
     }),
 });
 
@@ -57,5 +51,4 @@ export const {
     useCheckEmailMutation,
     useConfirmEmailMutation,
     useChangePasswordMutation,
-    useLazyGoogleAuthQuery,
 } = authorizeApi;

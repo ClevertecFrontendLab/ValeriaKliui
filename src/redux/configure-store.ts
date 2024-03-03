@@ -20,9 +20,7 @@ export const store = configureStore({
         [baseApi.reducerPath]: baseApi.reducer,
     }),
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware()
-            .concat(routerMiddleware)
-            .concat(baseApi.middleware)
+        getDefaultMiddleware().concat(routerMiddleware).concat(baseApi.middleware),
 });
 
 export const history = createReduxHistory(store);

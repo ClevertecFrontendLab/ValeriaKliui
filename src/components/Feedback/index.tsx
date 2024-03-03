@@ -2,7 +2,7 @@ import './index.css';
 
 import { StarFilled, StarOutlined } from '@ant-design/icons';
 import { FeedbackI } from '@redux/services/interfaces';
-import { Comment } from 'antd';
+import { Comment, Rate } from 'antd';
 import { Typography } from 'antd';
 import { FC } from 'react';
 
@@ -19,8 +19,6 @@ export const Feedback: FC<Partial<FeedbackI>> = ({
     rating,
     createdAt,
 }) => {
-    const ratingUnfilledAmount = rating ? [...Array(5 - rating)] : [];
-    const ratingFilled = [...Array(rating)]
     const feedbackDate = createdAt ? new Date(createdAt).toLocaleString('ru', {
         year: 'numeric',
         month: 'numeric',
@@ -41,12 +39,7 @@ export const Feedback: FC<Partial<FeedbackI>> = ({
             datetime={
                 <span className={styles.Info}>
                     <span className={styles.Stars}>
-                        {ratingFilled.map((_, index) => (
-                            <StarFilled key={index} />
-                        ))}
-                        {ratingUnfilledAmount.map((_, index) =>
-                            <StarOutlined key={index} />
-                        )}
+                        <Rate value={rating} disabled />
                     </span>
                     <span>
                         {feedbackDate}

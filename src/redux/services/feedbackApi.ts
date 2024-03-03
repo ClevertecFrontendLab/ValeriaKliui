@@ -1,14 +1,15 @@
 import { FeedbackFormData } from '@redux/slices/interfaces';
 import { baseApi } from './baseApi';
-import { Feedback } from './interfaces';
+import { FeedbackI } from './interfaces';
 
 export const feedbackApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getFeedback: builder.query<Feedback[], undefined>({
+        getFeedback: builder.query<FeedbackI[], undefined>({
             query: () => ({
-                url: 'feedback',
+                url: 'feedbkack',
                 method: 'GET',
             }),
+            providesTags: ['Feedbacks'],
         }),
         postFeedback: builder.mutation({
             query: (body: FeedbackFormData) => ({
@@ -16,8 +17,10 @@ export const feedbackApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body,
             }),
+            invalidatesTags: ['Feedbacks'],
         }),
     }),
 });
 
-export const { useGetFeedbackQuery, useLazyGetFeedbackQuery, usePostFeedbackMutation } = feedbackApi;
+export const { useGetFeedbackQuery, useLazyGetFeedbackQuery, usePostFeedbackMutation } =
+    feedbackApi;
