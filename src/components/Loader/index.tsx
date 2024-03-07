@@ -14,6 +14,8 @@ export const Loader: FC = () => {
                 Object.values(api.mutations)[0].status === 'pending',
         ),
     );
+
+    console.log(useAppSelector((state) => state))
     const defaultOptions = {
         loop: true,
         autoplay: true,

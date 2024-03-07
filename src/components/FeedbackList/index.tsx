@@ -1,6 +1,9 @@
+import './index.css';
+
 import { Feedback } from '@components/Feedback';
-import { List, Typography } from 'antd';
+import { Typography } from 'antd';
 import { FC } from 'react';
+import { FixedSizeList } from 'react-window';
 
 import { FeedbackListProps } from './interfaces';
 const { Title, Text } = Typography;
@@ -20,20 +23,27 @@ export const FeedbackList: FC<FeedbackListProps> = ({ feedbacks }) => {
                     </Text>
                 </div>
             ) : (
-                <List
-                    itemLayout='horizontal'
-                    dataSource={feedbacks}
-                    renderItem={({ imageSrc, fullName, message, createdAt, rating, id }) => (
-                        <Feedback
-                            imageSrc={imageSrc}
-                            fullName={fullName}
-                            message={message}
-                            createdAt={createdAt}
-                            rating={rating}
-                            key={id}
-                        />
+                <FixedSizeList
+                    height={630}
+                    width={'100%'}
+                    itemCount={feedbacks.length}
+                    itemSize={100}
+                    itemData={feedbacks}
+                    className='no-scrollbars'
+                >
+                    {({ data, index, style }) => (
+                        <div style={style}>
+                            <Feedback
+                                imageSrc={data[index].imageSrc}
+                                fullName={data[index].fullName}
+                                message={data[index].message}
+                                createdAt={data[index].createdAt}
+                                rating={data[index].rating}
+                                key={index}
+                            />
+                        </div>
                     )}
-                />
+                </FixedSizeList>
             )}
         </>
     );

@@ -37,7 +37,7 @@ export const FeedbackContent: FC = () => {
     };
 
     return (
-        <>
+        <div className={styles.Container}>
             <FeedbackList feedbacks={feedbacks} />
             <div className={styles.Buttons}>
                 <Button type='primary' onClick={openWritingModal} data-test-id='write-review'>
@@ -64,6 +64,6 @@ export const FeedbackContent: FC = () => {
             />
             <FeedbackWritingModalError tryPostFeedbackAgain={tryPostFeedbackAgain} open={isErrorModalWritingOpened} onCancel={closeErrorModalWriting} />
             <FeedbackWritingModalSuccess open={isSuccessModalOpened} onCancel={closeSuccessModal} />
-        </>
+        </div>
     );
 };
