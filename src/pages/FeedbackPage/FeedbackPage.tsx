@@ -1,4 +1,4 @@
 import { FeedbackContent } from '@components/FeedbackContent';
-import React from 'react';
+import { FC } from 'react';
 
-export const FeedbackPage: React.FC = () => <FeedbackContent />;
+export const FeedbackPage: FC = () => <FeedbackContent />;

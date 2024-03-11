@@ -1,4 +1,4 @@
-import { CalendarTwoTone,HeartFilled, IdcardOutlined, TrophyFilled } from '@ant-design/icons';
+import { CalendarTwoTone, HeartFilled, IdcardOutlined, TrophyFilled } from '@ant-design/icons';
 import { useLoginUser } from '@hooks/useLoginUser';
 import { Menu as MenuA } from 'antd';
 import { FC } from 'react';
@@ -6,10 +6,10 @@ import { FC } from 'react';
 import ExitIcon from '/img/Exit.svg';
 
 import styles from './index.module.css';
-
+import { PATHS } from '@constants/navigation/paths';
 
 export const Menu: FC = () => {
-    const { logOut } = useLoginUser()
+    const { logOut } = useLoginUser();
 
     return (
         <MenuA
@@ -17,8 +17,12 @@ export const Menu: FC = () => {
             items={[
                 {
                     key: '1',
-                    icon: <CalendarTwoTone twoToneColor={['#061178', '#061178']} />,
-                    label: 'Календарь',
+                    label: (
+                        <a href={PATHS.CALENDAR}>
+                            <CalendarTwoTone twoToneColor={['#061178', '#061178']} />
+                            Календарь
+                        </a>
+                    ),
                 },
                 {
                     key: '2',
@@ -46,4 +50,4 @@ export const Menu: FC = () => {
             ]}
         />
     );
-}
+};

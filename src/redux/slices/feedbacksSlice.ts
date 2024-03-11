@@ -1,8 +1,7 @@
-import { UserData } from '@hooks/interfaces';
 import { RootState } from '@redux/configure-store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { AuthState, FeedbackFormData, FeedbacksState } from './interfaces';
+import { FeedbackFormData, FeedbacksState } from './interfaces';
 
 const initialState: FeedbacksState = {
     message: null,

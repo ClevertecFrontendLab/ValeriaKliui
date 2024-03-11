@@ -12,13 +12,14 @@ import { RegisterErrorUserExist } from '@components/AuthMessage/RegisterErrorUse
 import { RegisterSuccess } from '@components/AuthMessage/RegisterSuccess';
 import { BasicLayout } from '@components/BasicLayout';
 import { ProtectedRoute } from '@components/ProtectedRoute';
+import { Redirect } from '@components/Redirect';
 import { AuthPage } from '@pages/AuthPage';
+import { CalendarPage } from '@pages/CalendarPage';
 import { FeedbackPage } from '@pages/FeedbackPage';
 import { MainPage } from '@pages/MainPage';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { PATHS } from './paths';
-import { Redirect } from '@components/Redirect';
 
 export const NAVIGATION_ITEMS = (
     <Routes>
@@ -28,6 +29,7 @@ export const NAVIGATION_ITEMS = (
             <Route element={<BasicLayout />}>
                 <Route path={PATHS.MAIN} element={<MainPage />} />
                 <Route path={PATHS.FEEDBACK} element={<FeedbackPage />} />
+                <Route path={PATHS.CALENDAR} element={<CalendarPage />} />
             </Route>
         </Route>
 

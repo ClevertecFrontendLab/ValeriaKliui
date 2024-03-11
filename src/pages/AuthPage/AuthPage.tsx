@@ -1,4 +1,4 @@
 import { LoginForm } from '@components/AuthLayout/LoginForm';
-import React from 'react';
+import { FC } from 'react';
 
-export const AuthPage: React.FC = () => <LoginForm />;
+export const AuthPage: FC = () => <LoginForm />;

@@ -43,3 +43,5 @@ export interface UseFeedbacksReturns {
     setIsFeedbackModalOpened: (isOpened: boolean) => void;
     isAllFeedbacksShown: boolean;
 }
+
+export type UseModalReturns = [boolean, () => void, () => void]

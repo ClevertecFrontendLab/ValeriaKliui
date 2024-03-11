@@ -15,7 +15,6 @@ export const Loader: FC = () => {
         ),
     );
 
-    console.log(useAppSelector((state) => state))
     const defaultOptions = {
         loop: true,
         autoplay: true,

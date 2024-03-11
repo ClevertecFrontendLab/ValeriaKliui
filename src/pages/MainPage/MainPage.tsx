@@ -1,8 +1,8 @@
 import { Footer } from '@components/Footer';
 import { InfoCards } from '@components/InfoCards/index';
-import React from 'react';
+import { FC } from 'react';
 
-export const MainPage: React.FC = () => (
+export const MainPage: FC = () => (
     <>
         <InfoCards />
         <Footer />

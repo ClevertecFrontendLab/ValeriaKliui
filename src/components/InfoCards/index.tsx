@@ -30,16 +30,20 @@ export const InfoCards: FC = () => (
                 </Card>
 
                 <Row gutter={[16, { xs: 10, lg: 8 }]} className={styles.CardsGrid}>
-                    {CARDS_INFO.map(({ title, text, icon, key }) => (
+                    {CARDS_INFO.map(({ title, text, icon, key, link }) => (
                         <Col key={key} sm={8} xs={24}>
                             <Card
                                 bordered={false}
                                 className={styles.Card}
                                 actions={[
-                                    <div className={[styles.CardBottom, 'color_blue6'].join(' ')}>
-                                        {icon}
-                                        <Text className='color_blue6'>{text}</Text>
-                                    </div>,
+                                    <a href={link}>
+                                        <div
+                                            className={[styles.CardBottom, 'color_blue6'].join(' ')}
+                                        >
+                                            {icon}
+                                            <Text className='color_blue6'>{text}</Text>
+                                        </div>
+                                    </a>,
                                 ]}
                             >
                                 <h6>{title}</h6>

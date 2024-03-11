@@ -3,6 +3,7 @@ export enum PATHS {
     AUTH = '/auth',
     MAIN = '/main',
     FEEDBACK = 'feedbacks',
+    CALENDAR = 'calendar',
     RESULT = '/result',
     REGISTER = 'registration',
     REGISTER_SUCCESS = '/result/success',
